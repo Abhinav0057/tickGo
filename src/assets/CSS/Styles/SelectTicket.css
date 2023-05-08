@@ -1,0 +1,270 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: poppins;
+}
+/* .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.9);
+    color: #fff;
+
+}
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 5rem
+}
+.navbar-links li{
+    list-style: none;
+}
+.navbar-links li a {
+    display: flex;
+    text-decoration:none;
+    color: white;
+    font-size: 1.75rem;
+    padding: 1rem;
+   
+}
+.navbar-links li:hover{
+    background-color: aqua;
+} */
+.browse .ticket{
+    display: flex;
+    top: 0;
+    left: 50%;
+    width: 300px;
+    background-color: #EAE6E6 ;
+}
+.browse .iconbox {
+    padding: 15px;
+    border: 5px solid #fff;
+    border-color: #fff;
+    box-shadow:  0px 30px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    transition: all 0.5s ease;
+  }
+.browse .iconbox .text-muted{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+    font-family: poppins sans-serif;
+
+}
+.browse .iconbox .price{
+    padding-left: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+.browse .ButtonWapper{
+  float: right;
+  
+}
+.browse .ButtonWapper .mysliderButton{
+ margin-top: 1rem;
+  padding: 0.75rem;
+  color:#fff;
+  border-radius: 1rem;
+  border: none;
+  background-color:#F11212;
+  font-size: 19px;
+    width: 6em;
+  max-width: 10rem;
+  margin-bottom: 0rem;
+  transition: transform  0.5s ease-in-out; 
+  cursor: pointer;
+}
+.mysliderButton:hover{
+    color: aliceblue;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+    transform: translateY(8px);
+}
+.browse .ButtonWapper-1 .mysliderButton-1{
+    margin-top: 1rem;
+     padding: 0.75rem;
+     color:#fff;
+     border-radius: 1rem;
+     border: none;
+     background-color:#F11212;
+     font-size: 19px;
+    width: 6em;
+     max-width: 10rem;
+     margin-bottom: 0rem;
+     transition: transform  0.5s ease-in-out; 
+     cursor: pointer;
+   }
+   .mysliderButton-1:hover{
+       color: aliceblue;
+       box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+       transform: translateY(8px);
+   }
+
+   /* box section */
+   .box .iconbox {
+    padding: 15px;
+    border: 5px solid #fff;
+    border-color: #fff;
+    box-shadow:  0px 30px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    transition: all 0.5s ease;
+  }
+.box .iconbox .text-muted{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+    font-family: poppins sans-serif;
+
+}
+.box .iconbox .price{
+    padding-left: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+.box .ButtonWapper{
+  float: right;
+  
+}
+.box .ButtonWapper .mysliderButton{
+ margin-top: 1rem;
+  padding: 0.75rem;
+  color:#fff;
+  border-radius: 1rem;
+  border: none;
+  background-color:#F11212;
+  font-size: 19px;
+    width: 6em;
+  max-width: 10rem;
+  margin-bottom: 0rem;
+  transition: transform  0.5s ease-in-out; 
+  cursor: pointer;
+}
+.mysliderButton:hover{
+    color: aliceblue;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+    transform: translateY(8px);
+}
+.box .ButtonWapper-1 .mysliderButton-1{
+    margin-top: 1rem;
+     padding: 0.75rem;
+     color:#fff;
+     border-radius: 1rem;
+     border: none;
+     background-color:#F11212;
+     font-size: 19px;
+    width: 6em;
+     max-width: 10rem;
+     margin-bottom: 0rem;
+     transition: transform  0.5s ease-in-out; 
+     cursor: pointer;
+   }
+   .mysliderButton-1:hover{
+       color: aliceblue;
+       box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+       transform: translateY(8px);
+   }
+
+   /* box-1  section */
+
+.box-1 .iconbox {
+    padding: 15px;
+    border: 5px solid #333;
+    border-color: #fff;
+    box-shadow:  0px 30px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    transition: all 0.5s ease;
+  }
+.box-1 .iconbox .text-muted{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+    font-family: poppins sans-serif;
+
+}
+.box-1 .iconbox .price{
+    padding-left: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+.box-1 .ButtonWapper{
+  float: right;
+  
+}
+.box-1 .ButtonWapper .mysliderButton{
+ margin-top: 1rem;
+  padding: 0.75rem;
+  color:#fff;
+  border-radius: 1rem;
+  border: none;
+  background-color:#F11212;
+  font-size: 24px;
+  width: 10em;
+  max-width: 10rem;
+  margin-bottom: 0rem;
+  transition: transform  0.5s ease-in-out; 
+  cursor: pointer;
+}
+.mysliderButton:hover{
+    color: aliceblue;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+    transform: translateY(8px);
+}
+.box-1 .ButtonWapper-1 .mysliderButton-1{
+    margin-top: 1rem;
+     padding: 0.75rem;
+     color:#fff;
+     border-radius: 1rem;
+     border: none;
+     background-color:#F11212;
+     font-size: 24px;
+     width: 10em;
+     max-width: 10rem;
+     margin-bottom: 0rem;
+     transition: transform  0.5s ease-in-out; 
+     cursor: pointer;
+   }
+   .mysliderButton-1:hover{
+       color: aliceblue;
+       box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+       transform: translateY(8px);
+   }
+
+/* checkout Button */
+.Buttonwapper{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 25rem;
+    margin-bottom: 1rem;
+    
+}
+.ButtonWapper .mysliderbtn{
+    border-radius: 20px;
+    padding: 1rem;
+}
+.foot{
+    background: linear-gradient(137.71deg, rgba(0, 0, 0, 0.88) 71.53%, #F30606 100.98%, rgba(255, 255, 255, 0.42) 95.98%);
+  }
+  .mysliderbtn{
+    float: right;
+    margin: 80px 165px;
+    height: 55px;
+    width: 130px;
+    background: red;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-size: 19px;
+    text-align: center;
+    letter-spacing: 1px;
+    /* margin: 25px; */
+    font-weight: 500;
+  }
+  .mysliderbtn:hover{
+    background-color: black;
+    color: red;
+    transition: all 0.5s ease;
+  }

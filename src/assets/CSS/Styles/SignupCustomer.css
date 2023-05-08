@@ -1,0 +1,218 @@
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
+
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif; */
+  /* background-image: url(../image/3897764.jpg); */
+  /* filter: brightness(60%);  */
+  /* background-size: cover; */
+  /* opacity: 0.9; */
+
+  background-attachment: fixed;
+}
+.container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.formWrapper {
+  display: flex;
+
+  background-color: whitesmoke;
+
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px black;
+}
+.WelcomeDiv {
+  width: 30%;
+  padding: 8%;
+  border-radius: 10px 0px 0px 10px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+/* .WelcomeDiv h1{
+    font-weight: bold;
+    font-size: large;
+    font-size: 20px;
+} */
+.WelcomeDiv h2 {
+  font-weight: bold;
+  font-size: 35px;
+}
+.text {
+  font-size: 18px;
+}
+.WelcomeDiv span .go {
+  color: red;
+}
+.formDiv {
+  padding: 25px 30px;
+}
+.formDiv .title {
+  font-size: 25px;
+  font-weight: 700;
+  /* margin: 0px 130px; */
+}
+.formDiv form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0 12px 0;
+}
+form .user-details .input-box {
+  margin-bottom: 6px;
+  width: calc(100% / 2 - 20px);
+}
+.user-details .input-box .details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.user-details .input-box input {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box select {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+  border-color: rgb(60, 59, 59);
+}
+form .gender-details .gender-title {
+  /* font-size: 25px; */
+  font-weight: 500;
+  /* float: right;
+    margin: -84px 215px; */
+}
+form .gender-details .category {
+  display: flex;
+  width: 49%;
+  margin: 12px 0;
+  /* float: right;
+    margin: -54px -3px; */
+  /* background:red; */
+  justify-content: space-between;
+}
+.gender-details .category label {
+  display: flex;
+  align-items: center;
+}
+.gender-details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three {
+  border-color: #d9d9d9;
+  background: rgb(60, 59, 59);
+}
+form input[type="radio"] {
+  display: none;
+}
+form .button {
+  height: 45px;
+  margin: 30px 0;
+}
+form .button input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+form .button input:hover {
+  background: black;
+  transition: all 0.5s ease;
+}
+.checkbox {
+  color: black;
+  /* float: right;
+    margin-top: -81px; */
+  font-weight: 500;
+  /* margin: 32px 127px; */
+}
+/* @media (max-width: 584px){
+    .formWrapper{
+        max-width: 100%;
+    }
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+} */
+@media screen and (max-width: 1015px) {
+  .formWraper {
+    width: 70%;
+  }
+  .WelcomeDiv {
+    display: none;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 584px) {
+  .formDiv {
+    max-width: 100%;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .WelcomeDiv {
+    display: none;
+  }
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 98%;
+  }
+  form .gender-details .category {
+    width: 100%;
+  }
+  .formDiv form .user-details {
+    max-height: 280px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+@media screen and (max-width: 769px) {
+  .formDiv {
+    max-width: 100%;
+    border-radius: 10px 10px 10px 10px;
+  }
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 98%;
+  }
+  form .gender-details .category {
+    width: 100%;
+  }
+  .formDiv form .user-details {
+    max-height: 280px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}

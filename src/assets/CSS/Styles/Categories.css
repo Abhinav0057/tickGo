@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+
+    list-style: none;
+    box-sizing: border-box;
+  }
+  
+  
+
+  
+  .wrapper {
+    width: 80%;
+ 
+    margin: 100px auto 0;
+  }
+  
+  .wrapper .title {
+    font-size: 24px;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    
+  }
+
+ 
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 4rem;
+    column-gap: 2rem;
+    align-content: center;
+  }
+  
+  .container .option_item {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    box-shadow: 0px 0px 10px rgba(black);
+  }
+  
+  .container .option_item .checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+  }
+  
+  .option_item .option_inner {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    display: block;
+    border: 5px solid transparent;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    
+  }
+  .downtext{
+    color: #fff;
+  }
+  
+  .option_item .option_inner img {
+     max-width: 100%;
+     height: 5.5rem;
+     object-fit: cover;
+     border-radius: 20px;
+  }
+  
+  
+  .option_item .option_inner .icon {
+    margin-bottom: 10px;
+  }
+  
+  .option_item .option_inner .icon .fab {
+    font-size: 32px;
+  }
+  
+  .option_item .option_inner .name {
+    user-select: none;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.facebook {
+    border-color: #3b5999;
+    color: #3b5999;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.twitter {
+    border-color: #55acee;
+    color: #55acee;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.instagram {
+    border-color: #e4405f;
+    color: #e4405f;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.linkedin {
+    border-color: #0077b5;
+    color: #0077b5;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.whatsapp {
+    border-color: #25d366;
+    color: #25d366;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.google {
+    border-color: #dd4b39;
+    color: #dd4b39;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.reddit {
+    border-color: #ff5700;
+    color: #ff5700;
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner.quora {
+    border-color: #f4130c;
+    color: #f4130c;
+  }
+  
+  .option_item .option_inner .tickmark {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    border: 20px solid;
+    border-color: #000 transparent transparent #000;
+    display: none;
+  }
+  
+  .option_item .option_inner .tickmark:before {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: 15px;
+    height: 5px;
+    border: 3px solid;
+    border-color: transparent transparent #fff #fff;
+    transform: rotate(-45deg);
+  }
+  
+  .option_item .checkbox:checked ~ .option_inner .tickmark {
+    display: block;
+  }
+  
+  .option_item .option_inner.facebook .tickmark {
+    border-color: #3b5999 transparent transparent #3b5999;
+  }
+  
+  .option_item .option_inner.twitter .tickmark {
+    border-color: #55acee transparent transparent #55acee;
+  }
+  
+  .option_item .option_inner.instagram .tickmark {
+    border-color: #e4405f transparent transparent #e4405f;
+  }
+  
+  .option_item .option_inner.linkedin .tickmark {
+    border-color: #0077b5 transparent transparent #0077b5;
+  }
+  
+  .option_item .option_inner.whatsapp .tickmark {
+    border-color: #25d366 transparent transparent #25d366;
+  }
+  
+  .option_item .option_inner.google .tickmark {
+    border-color: #dd4b39 transparent transparent #dd4b39;
+  }
+  
+  .option_item .option_inner.reddit .tickmark {
+    border-color: #ff5700 transparent transparent #ff5700;
+  }
+  
+  .option_item .option_inner.quora .tickmark {
+    border-color: #f4130c transparent transparent #b92b27;
+  }
+
+  .btn-2{
+    cursor: pointer;
+    background-color: red;
+    padding: 1rem 4rem  ;
+    border: none;
+    border-radius: 0.4rem;
+    color:white;
+    float: right;
+    margin-right: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    
+  }
+  .btn-2:hover{
+    background-color: black;
+   color: red;
+   transition: all 0.5s ease;
+  }
+  .img-desc{
+    text-align: center;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+  .title{
+text-align: initial !important;
+  }
+  .selected{
+    text-align: end;
+    margin-bottom: 1rem;
+    color: #f4130c;
+    font-weight: 600 ;
+    font-size: 1.2rem;
+    margin-right: 3rem;
+  }
+  .categoriestitle{
+    margin: 0px 30px;
+  }

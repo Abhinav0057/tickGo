@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+    /* background-image: url(../Image/backgroundcustomer.png); */
+    background-size: cover;
+    /* opacity: 0.9; */
+
+    /* height: 100%; */
+    /* overflow: hidden; */
+    background-attachment: fixed;
+}
+.container1{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.formWrapper1{
+    display: flex;
+    width: 70%;
+    height: auto;
+    background-color: whitesmoke;
+    margin-top: 35px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px black;
+}
+.WelcomeDiv1{
+    width: 30%;
+    padding: 8%;
+    border-radius: 10px 0px 0px 10px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+/* .WelcomeDiv h1{
+    font-weight: bold;
+    font-size: large;
+    font-size: 20px;
+} */
+.WelcomeDiv1 h2 {
+    margin-top: 120px;
+    font-weight: bold;
+    font-size: 35px;
+}
+.text{
+    font-size: 18px;
+}
+.WelcomeDiv1 span .go{
+    color: red;
+}
+.formDiv1{
+    padding: 25px 30px;
+    /* width: 70%;
+    background-color: aqua; */
+}
+.formDiv1 .title1{
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+
+}
+.formDiv1 form .user-details1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 12px 0 12px 0;
+}
+form .user-details1 .input-box1{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+.user-details1 .input-box1 .details1{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+.user-details1 .input-box1 input{
+    height: 35px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size:16p x ;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.user-details1 .input-box1 input:focus,
+.user-details1 .input-box1 input:valid{
+    border-color: rgb(60, 59, 59);
+}
+form .gender-details1 .gender-title1{
+    /* font-size: 25px; */
+    font-weight: 500;
+    float: left;
+    /* margin: -84px 215px; */
+}
+form .gender-details1 .category1{
+    display: flex;
+    width: 49%;
+    margin: 12px 0;
+    /* float: right;
+    margin: -54px -3px; */
+    /* background:red; */
+    justify-content: space-between;
+}
+.gender-details1 .category1 label{
+display: flex;
+align-items: center;
+}
+.gender-details1 .category1 .dot1{
+    height: 18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+border: 5px solid transparent;
+transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category1 label .one,
+#dot-2:checked ~ .category1 label .two,
+#dot-3:checked ~ .category1 label .three{
+    border-color: #d9d9d9;
+    background: rgb(60, 59, 59);
+}
+form input[type="radio"]{
+    display:none
+}
+form .button1{
+    height: 45px;
+    margin: 40px 0;
+}
+form .button1 input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+form .button1 input:hover{
+    background: black;
+    transition: all 0.5s ease;
+
+}
+
+/* Image-Upload */
+.Image-upload .buttonwapper{
+    /* display: flex; */
+    padding: 15px;
+    
+}
+.Image-upload .mybtn{
+    border: none;
+    border-radius: 10px;
+    color: aqua;
+    background-color: black;
+    /* padding: 10px 10px;
+    width: 100px; */
+}
+
+
+ @media screen and (max-width: 584px){
+
+    .formDiv1{
+        max-width: 100%;
+        border-radius: 10px 10px 10px 10px;
+    }
+    .WelcomeDiv1{
+        display: none;
+    }
+    form .user-details1 .input-box1{
+        margin-bottom: 15px;
+        width: 98%;
+    }
+    form .gender-details1 .category1{
+        width: 100%;
+    }
+    .formDiv1 form .user-details1{
+        max-height: 280px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    
+    
+} 
+@media screen and (max-width: 769px){
+    .formDiv1{
+        max-width: 100%;
+        border-radius: 10px 10px 10px 10px;
+    }
+    form .user-details1 .input-box1{
+        margin-bottom: 15px;
+        width: 98%;
+    }
+    form .gender-details1 .category1{
+        width: 100%;
+    }
+    .formDiv1 form .user-details1{
+        max-height: 280px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+}

@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    
+}
+.Welcontainer{
+    width: 100vw;
+    height: 100vh; 
+    background-image: url(../image/3897764.jpg); 
+    background-size: cover;
+    /* filter: brightness(40%); */
+
+    position: relative;
+    
+
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    /* font-size: 36px; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+}
+.wel{
+    font-size: 60px;
+    font-weight: 600;
+}
+.spango{
+    color: red;
+}
+.weltext{
+    font-size: 30px;
+}
+.welbutton{
+    height: 40px;
+    width: 120px;
+    background: red;
+    /* margin: 110px 30px; */
+    /* padding: 6px 21px; */
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 25px;
+    font-weight: 500;
+}
+.welbutton:hover{
+    background-color: white;
+   color: red;
+   transition: all 0.5s ease;
+}

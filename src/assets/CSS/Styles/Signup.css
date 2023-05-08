@@ -1,0 +1,48 @@
+p.signup{
+    margin: 7px; 
+   text-align: center;
+   color: white;
+   font-size: 14px;
+}
+a.signlink{
+   color: red;
+   text-decoration: underline;
+}
+link.signlink:hover{
+   color: white;
+} 
+h1.hello{
+   color: red;
+}
+.customerbtn{
+   background: red;
+    margin: 110px 30px;
+    padding: 6px 21px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+.customerbtn:hover{
+   background-color: white;
+   color: red;
+   transition: all 0.5s ease;
+}
+.organizerbtn{
+   background: red;
+    margin: 110px 20px;
+    padding: 6px 21px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+.organizerbtn:hover{
+   background-color: white;
+   color: red;
+   transition: all 0.5s ease;
+}
