@@ -6,38 +6,91 @@ import { useForm } from "react-hook-form";
 import { useGetUserProfile } from "../../services/fetchers/user/user";
 import { useBookTicketHandler } from "../../services/fetchers/event/event";
 import { useNavigate } from "react-router-dom";
-
+import { useEventTickets } from "../eventTicketPage/useEventTickets";
+import { useKhaltiPost } from "../../services/fetchers/payment/payment";
+import { v4 as uuidv4 } from "uuid";
 function CheckoutPage() {
   const location = useLocation();
   const navigate = useNavigate();
+
   if (location.state) {
-    var { myEventData } = location?.state;
+    var { myEventData, currnetSelectedTicketsToBuy } = location?.state;
   }
   const userProfileData = useGetUserProfile();
-  console.log(myEventData, userProfileData);
-  const { mutateAsync, error, mutate } = useBookTicketHandler();
+
+  // const { mutateAsync, error, mutate } = useBookTicketHandler();
+  const { mutateAsync, error, mutate } = useKhaltiPost();
   const handleSubmitConfirmCheckout = async () => {
-    console.log(myEventData?.ticketTypes);
     const tempPayloadData = [];
-    myEventData?.ticketTypes.forEach((element) => {
-      const tempDict = {
-        id: element.id,
-        name: element.name,
-        description: element.description,
-        count: 1,
-        price: element.price,
-      };
-      tempPayloadData.push(tempDict);
+    currnetSelectedTicketsToBuy.forEach((element) => {
+      if (element?.currentSelectedValue) {
+        const tempDict = {
+          id: element.id,
+          name: element.name,
+          description: element.description,
+          count: Number(element.currentSelectedValue),
+          price: element.price,
+        };
+        tempPayloadData.push(tempDict);
+      }
     });
-    console.log(tempPayloadData);
-    const responseData = await mutateAsync({
+
+    const bookingPayloadLocalStorage = {
       id: myEventData.id,
       body: { bookDetails: tempPayloadData },
-    });
-    if (responseData?.isSuccess) {
-      navigate("/");
+    };
+    localStorage.setItem(
+      "afterPayBookData",
+      JSON.stringify(bookingPayloadLocalStorage)
+    );
+    const grandTotal = currnetSelectedTicketsToBuy.reduce(
+      (total, obj) => total + Number(obj.subTotal),
+      0
+    );
+
+    const newArray = tempPayloadData.map((obj, i) => ({
+      identity: obj.id,
+      name: obj.name,
+      total_price: Number(obj.price) * obj.count * 100,
+      quantity: Number(obj.count),
+      unit_price: Number(obj.price) * 100,
+    }));
+
+    const khaltiPayloadDict = {
+      amount: grandTotal * 100,
+      customerInfo: {
+        name: userProfileData?.data?.name ?? "Ashim Upadhaya",
+        email: userProfileData?.data?.auth?.mail ?? "example@gmail.com",
+        phone: userProfileData?.data?.phone ?? "9811496763",
+      },
+      amountBreakDown: [
+        {
+          label: "Tikcet Price",
+          amount: grandTotal * 100,
+        },
+      ],
+      productDetails: newArray,
+    };
+
+    const responseData = await mutateAsync(khaltiPayloadDict);
+    console.log(responseData);
+    if (responseData?.data) {
+      localStorage.setItem(
+        "khaltiPaymentInitiateResponse",
+        JSON.stringify(responseData?.data)
+      );
+      console.log(responseData?.data?.payment_url);
+      window.location.replace(responseData?.data?.payment_url);
     }
-    navigate("/");
+    // navigate("/");
+    // const responseData = await mutateAsync({
+    //   id: myEventData.id,
+    //   body: { bookDetails: tempPayloadData },
+    // });
+    // if (responseData?.isSuccess) {
+    //   navigate("/");
+    // }
+    // navigate("/");
   };
   return (
     <div className=" p-5">
@@ -70,7 +123,7 @@ function CheckoutPage() {
             <Form.Control
               type="text"
               placeholder=""
-              defaultValue={userProfileData?.data?.mail ?? ""}
+              defaultValue={userProfileData?.data?.auth?.email ?? ""}
             />
           </Form.Group>
           <Form.Group className="p-3" controlId="">
@@ -99,18 +152,22 @@ function CheckoutPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      {myEventData?.ticketTypes?.map((ticketDesc) => {
-                        return (
-                          <tr>
-                            <td style={{ minWidth: "100px" }}>
-                              {ticketDesc?.name}
-                            </td>
-                            <td style={{ minWidth: "100px" }}>{1}</td>
-                            <td style={{ minWidth: "100px" }}>
-                              NPR.{ticketDesc?.price}
-                            </td>
-                          </tr>
-                        );
+                      {currnetSelectedTicketsToBuy?.map((ticketDesc) => {
+                        if (ticketDesc.currentSelectedValue) {
+                          return (
+                            <tr>
+                              <td style={{ minWidth: "100px" }}>
+                                {ticketDesc?.name}
+                              </td>
+                              <td style={{ minWidth: "100px" }}>
+                                {ticketDesc.currentSelectedValue}
+                              </td>
+                              <td style={{ minWidth: "100px" }}>
+                                NPR.{ticketDesc?.subTotal}
+                              </td>
+                            </tr>
+                          );
+                        }
                       })}
                     </tbody>
                   </table>
@@ -124,9 +181,12 @@ function CheckoutPage() {
 
                   <div>
                     Subtotal: NPR.{" "}
-                    {myEventData?.ticketTypes?.reduce((total, ticketDesc) => {
-                      return total + Number(ticketDesc.price);
-                    }, 0)}
+                    {currnetSelectedTicketsToBuy?.reduce(
+                      (total, ticketDesc) => {
+                        return total + Number(ticketDesc.subTotal);
+                      },
+                      0
+                    )}
                   </div>
                   <hr
                     style={{
@@ -138,9 +198,12 @@ function CheckoutPage() {
 
                   <div>
                     Grand Total: NPR.{" "}
-                    {myEventData?.ticketTypes?.reduce((total, ticketDesc) => {
-                      return total + Number(ticketDesc.price);
-                    }, 0)}
+                    {currnetSelectedTicketsToBuy?.reduce(
+                      (total, ticketDesc) => {
+                        return total + Number(ticketDesc.subTotal);
+                      },
+                      0
+                    )}
                   </div>
                 </div>
               </div>
@@ -153,10 +216,12 @@ function CheckoutPage() {
             <button
               className="btn btn-danger "
               style={{ borderRadius: "8px" }}
-              onClick={handleSubmitConfirmCheckout}
+              onClick={() => {
+                handleSubmitConfirmCheckout();
+              }}
             >
               {" "}
-              Confirm Order
+              Pay Now
             </button>
           </div>
         </div>

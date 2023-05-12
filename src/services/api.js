@@ -23,4 +23,7 @@ export const api = {
   category: {
     category: "/category",
   },
+  payment: {
+    postKhaltiPayment: "/payment/khalti-pay",
+  },
 };

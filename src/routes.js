@@ -14,6 +14,7 @@ import ApprovedEventsList from "./pages/superAdmin/ApprovedEventsList";
 import CompanyEventToggle from "./pages/company/CompanyEventToggle";
 import CheckoutPage from "./pages/checkoutpage/CheckoutPage";
 import Userhomepage from "./pages/userhomepage/Userhomepage";
+import PyamentVeificationpage from "./pages/checkoutpage/PyamentVeificationpage";
 
 export const routes = [
   {
@@ -135,6 +136,22 @@ export const routes = [
       <>
         <NavBar />
         <CheckoutPage />
+        <Footer />
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/payment-return-khalti/",
+    element: (
+      <>
+        <NavBar />
+        <PyamentVeificationpage />
         <Footer />
       </>
     ),

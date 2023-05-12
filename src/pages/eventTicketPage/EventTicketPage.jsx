@@ -2,8 +2,13 @@ import React from "react";
 import braynAdamImage from "../../assets/image/bryan 2.png";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useEventTickets } from "./useEventTickets";
 
 function EventTicketPage(props) {
+  const eventTickets = useEventTickets({
+    allTicketsData: props.myEventData?.ticketTypes,
+  });
+  console.log(eventTickets.currnetSelectedTicketsToBuy);
   return (
     <div className="container">
       <div className="section  pt-3 pb-3"></div>
@@ -11,7 +16,7 @@ function EventTicketPage(props) {
         <div className="row pt-5">
           <h4 className="text-center"> Ticket Types</h4>
           <div className="row">
-            {props.myEventData?.ticketTypes?.map((data, i) => (
+            {eventTickets?.currnetSelectedTicketsToBuy?.map((data, i) => (
               <div className="col-md-6 col-12   m-0 pb-5">
                 <div
                   style={{
@@ -43,6 +48,12 @@ function EventTicketPage(props) {
                       >
                         {data.description}
                       </div>
+                      <div
+                        className="header text-danger"
+                        style={{ wordWrap: "break-word" }}
+                      >
+                        Total Remaning Ticket: {data.count}
+                      </div>
                       <div className="pt-2 text-center pb-2">
                         <div
                           className="text-bold"
@@ -66,6 +77,9 @@ function EventTicketPage(props) {
                               color: "black",
                               padding: "0px 4px",
                             }}
+                            onClick={() => {
+                              eventTickets.decreaseTicketCountHandler(data.id);
+                            }}
                           >
                             -
                           </a>
@@ -74,13 +88,16 @@ function EventTicketPage(props) {
                               padding: "0px 4px",
                             }}
                           >
-                            {1}
+                            {data.currentSelectedValue}
                           </span>
                           <a
                             style={{
                               backgroundColor: "white",
                               color: "black",
                               padding: "0px 4px",
+                            }}
+                            onClick={() => {
+                              eventTickets.increaseTicketCountHandler(data.id);
                             }}
                           >
                             +
@@ -97,9 +114,14 @@ function EventTicketPage(props) {
         <div className="text-right m-4">
           <Link
             to={`/checkout/${props.myEventData.id}/${props.myEventData.title}`}
-            state={{ myEventData: props.myEventData }}
+            state={{
+              myEventData: props.myEventData,
+              currnetSelectedTicketsToBuy:
+                eventTickets.currnetSelectedTicketsToBuy,
+            }}
           >
             <button
+              disabled={eventTickets.totalNumberOfTicketSelected == "0"}
               className="btn btn-danger "
               style={{ padding: "10px 14px" }}
             >
