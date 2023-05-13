@@ -18,8 +18,8 @@ function CheckoutPage() {
   }
   const userProfileData = useGetUserProfile();
 
-  // const { mutateAsync, error, mutate } = useBookTicketHandler();
-  const { mutateAsync, error, mutate } = useKhaltiPost();
+  const { mutateAsync, error, mutate } = useBookTicketHandler();
+  // const { mutateAsync, error, mutate } = useKhaltiPost();
   const handleSubmitConfirmCheckout = async () => {
     const tempPayloadData = [];
     currnetSelectedTicketsToBuy.forEach((element) => {
@@ -71,25 +71,33 @@ function CheckoutPage() {
       ],
       productDetails: newArray,
     };
+    bookingPayloadLocalStorage.body.paymentDetails = khaltiPayloadDict;
+    console.log(khaltiPayloadDict, JSON.stringify(bookingPayloadLocalStorage));
 
-    const responseData = await mutateAsync(khaltiPayloadDict);
+    // const responseData = await mutateAsync(khaltiPayloadDict);
+    // console.log(responseData);
+    // if (responseData?.data) {
+    //   localStorage.setItem(
+    //     "khaltiPaymentInitiateResponse",
+    //     JSON.stringify(responseData?.data)
+    //   );
+    //   console.log(responseData?.data?.payment_url);
+    //   window.location.replace(responseData?.data?.payment_url);
+    // }
+    // navigate("/");
+    const responseData = await mutateAsync({
+      id: bookingPayloadLocalStorage.id,
+      body: bookingPayloadLocalStorage?.body,
+    });
     console.log(responseData);
-    if (responseData?.data) {
+
+    if (responseData?.status == 200) {
       localStorage.setItem(
-        "khaltiPaymentInitiateResponse",
+        "Bookapiresponse",
         JSON.stringify(responseData?.data)
       );
-      console.log(responseData?.data?.payment_url);
-      window.location.replace(responseData?.data?.payment_url);
+      window.location.replace(responseData?.data?.paymentResponse?.payment_url);
     }
-    // navigate("/");
-    // const responseData = await mutateAsync({
-    //   id: myEventData.id,
-    //   body: { bookDetails: tempPayloadData },
-    // });
-    // if (responseData?.isSuccess) {
-    //   navigate("/");
-    // }
     // navigate("/");
   };
   return (

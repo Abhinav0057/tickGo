@@ -1,51 +1,65 @@
-import React, { useState } from "react";
-import { useBookTicketHandler } from "../../services/fetchers/event/event";
+import React, { useEffect, useState } from "react";
+import { useVerifyBookiingHandler } from "../../services/fetchers/event/event";
 import { useNavigate } from "react-router-dom";
 
 const PyamentVeificationpage = () => {
-  const { mutateAsync, error, mutate } = useBookTicketHandler();
+  const { mutateAsync, error, mutate } = useVerifyBookiingHandler();
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const [responseDataOfBook, setResponseDataOfBook] = useState("");
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
-  React.useEffect(async () => {
-    const searchParams = new URLSearchParams(
-      window.location.href.split("?")[1]
-    );
-    const pidx = searchParams.get("pidx");
-    const amount = searchParams.get("amount");
-    const mobile = searchParams.get("mobile");
-    const purchase_order_id = searchParams.get("purchase_order_id");
-    const purchase_order_name = searchParams.get("purchase_order_name");
-    const transaction_id = searchParams.get("transaction_id");
-    const khaltiPaymentDict = JSON.parse(
-      localStorage.getItem("khaltiPaymentInitiateResponse")
-    );
-    const bookingData = JSON.parse(localStorage.getItem("afterPayBookData"));
-    bookingData.body.paymentId = pidx ?? "gM8DLeJsBqJFCP2Lu2GzLR";
-    console.log(bookingData);
+  useEffect(() => {
+    if (isFirstLoad) {
+      const searchParams = new URLSearchParams(
+        window.location.href.split("?")[1]
+      );
+      const pidx = searchParams.get("pidx");
+      const amount = searchParams.get("amount");
+      const mobile = searchParams.get("mobile");
+      const purchase_order_id = searchParams.get("purchase_order_id");
+      const purchase_order_name = searchParams.get("purchase_order_name");
+      const transaction_id = searchParams.get("transaction_id");
+      const khaltiPaymentDict = JSON.parse(
+        localStorage.getItem("khaltiPaymentInitiateResponse")
+      );
+      const newAfterBookingApiResponse = JSON.parse(
+        localStorage.getItem("Bookapiresponse")
+      );
+      const bookingData = JSON.parse(localStorage.getItem("afterPayBookData"));
+      bookingData.body.paymentId = pidx ?? "gM8DLeJsBqJFCP2Lu2GzLR";
 
-    const responseData = await mutateAsync({
-      id: bookingData.id,
-      body: bookingData.body,
-    });
+      bookingData.body.transactionId = transaction_id;
+      bookingData.body.tickets = newAfterBookingApiResponse?.tickets;
+      console.log(bookingData);
 
-    if (responseData?.isSuccess) {
-      //   navigate("/");
-      setIsSuccess(() => true);
-      setIsLoading(() => false);
-      setResponseDataOfBook(() => responseData);
-    }
-    if (responseData?.isError) {
-      setIsError(() => true);
-      setIsLoading(() => false);
-      setResponseDataOfBook(() => responseData);
+      const makeBooking = async () => {
+        const responseData = await mutateAsync({
+          id: bookingData.id,
+          body: bookingData.body,
+        });
+
+        if (responseData.status == 200) {
+          setIsSuccess(() => true);
+          setIsLoading(() => false);
+          setIsFirstLoad(() => false);
+          setResponseDataOfBook(() => responseData);
+        }
+        if (responseData.status != 200) {
+          setIsError(() => true);
+          setIsLoading(() => false);
+          setIsFirstLoad(() => false);
+          setResponseDataOfBook(() => responseData);
+        }
+        setIsFirstLoad(() => false);
+      };
+
+      makeBooking();
     }
   }, []);
-  console.log(responseDataOfBook);
 
   return (
     <div>

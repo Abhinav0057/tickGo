@@ -152,7 +152,7 @@ export default function NavBar() {
                     className="active "
                     style={{ Color: "white" }}
                   >
-                    Un/publish event
+                    My Events
                   </Link>
                 </Nav>
               </>
@@ -168,24 +168,11 @@ export default function NavBar() {
                 maxWidth: "150px",
               }}
             >
-              {/* <Link to="/TicketSelection" className="active "> */}
-              Tickets
-              {/* </Link> */}
-            </Nav>
-            <Nav
-              className="mx-4"
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                letterSpacing: "2px",
-                maxWidth: "150px",
-                alignItems: "center",
-                padding: 4,
-              }}
-            >
-              {/* <Link to="/About" className="active "> */}
-              About
-              {/* </Link> */}
+              {userRole?.roles?.toLowerCase() == "company" && (
+                <Link to="/company-dashboard" className="active ">
+                  Dashboard
+                </Link>
+              )}
             </Nav>
 
             <Nav

@@ -5,7 +5,7 @@ export const useEventTickets = (props) => {
     React.useState([]);
   const [totalNumberOfTicketSelected, seTotalNumberOfTicketSelected] =
     React.useState(1);
-  React.useEffect(async () => {
+  React.useEffect(() => {
     if (props?.allTicketsData?.length > 0) {
       const tempArray = [];
       props?.allTicketsData?.forEach((tickettype) => {

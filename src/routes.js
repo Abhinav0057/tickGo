@@ -15,6 +15,7 @@ import CompanyEventToggle from "./pages/company/CompanyEventToggle";
 import CheckoutPage from "./pages/checkoutpage/CheckoutPage";
 import Userhomepage from "./pages/userhomepage/Userhomepage";
 import PyamentVeificationpage from "./pages/checkoutpage/PyamentVeificationpage";
+import CompanyDashboard from "./pages/dashboard/CompanyDashboard";
 
 export const routes = [
   {
@@ -55,6 +56,22 @@ export const routes = [
       <>
         <NavBar />
         <Userhomepage />
+        <Footer />
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/company-dashboard",
+    element: (
+      <>
+        <NavBar />
+        <CompanyDashboard />
         <Footer />
       </>
     ),

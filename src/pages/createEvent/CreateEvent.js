@@ -74,15 +74,18 @@ const CreateEvent = () => {
           formData.append(`${key}[${i}]`, payload[key][i]);
         }
       } else if (key === "images") {
-        for (let imageKey in payload.images) {
-          formData.append(
-            `images[${imageKey}]`,
-            JSON.stringify(payload.images[imageKey])
-          );
+        for (let i = 0; i < payload.images.length; i++) {
+          const image = payload.images[i];
+          console.log(image);
+          formData.append(`images[${i}]`, {});
         }
       } else {
         formData.append(key, payload[key]);
       }
+    }
+    console.log(payload.images);
+    for (const entry of formData) {
+      console.log(entry[0], entry[1]);
     }
 
     const responseData = await mutateAsync(formData);

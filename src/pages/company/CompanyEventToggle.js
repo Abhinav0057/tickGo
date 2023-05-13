@@ -1,9 +1,11 @@
 import React from "react";
 import { useGetEvents } from "../../services/fetchers/event/event";
+import { useGetUnpublishedEvents } from "../../services/fetchers/event/event";
 import { useTooglePublishHandler } from "../../services/fetchers/event/event";
 
 export default function UnapprovedEventsList() {
   const getAllMyEvents = useGetEvents();
+  const getAllMyEventsUnpublised = useGetUnpublishedEvents();
   const { mutateAsync, error, mutate } = useTooglePublishHandler();
 
   const handlePublishEventHandler = async (id) => {
@@ -38,7 +40,39 @@ export default function UnapprovedEventsList() {
                   <div>Event Start date: {String(unappEvent?.startDate)}</div>
                   <div>Event End date: {String(unappEvent?.endDate)}</div>
                   {!unappEvent?.isPublished && (
-                    <div className="text-danger">Event Not Published Yet</div>
+                    <div className="text-success">Event Publised</div>
+                  )}
+                  <div className="">
+                    <a
+                      className="btn btn-danger text-white"
+                      onClick={() => {
+                        handlePublishEventHandler(unappEvent.id);
+                      }}
+                    >
+                      Unpublish Event
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        {getAllMyEventsUnpublised.isSuccess &&
+          getAllMyEventsUnpublised.data?.length > 0 &&
+          getAllMyEventsUnpublised.data[0]?.map((unappEvent) => {
+            return (
+              <div
+                className="card container m-2"
+                style={{ background: "#FFFFFF", borderRadius: "10px" }}
+              >
+                <div className="card-body">
+                  <h5>Event Name: {String(unappEvent?.title)}</h5>
+                  <div>Event Type: {String(unappEvent?.type)}</div>
+                  <div>Venue: {String(unappEvent?.venue)}</div>
+                  <div>Event Created date: {String(unappEvent?.createdAt)}</div>
+                  <div>Event Start date: {String(unappEvent?.startDate)}</div>
+                  <div>Event End date: {String(unappEvent?.endDate)}</div>
+                  {!unappEvent?.isPublished && (
+                    <div className="text-danger">Event Not Published</div>
                   )}
                   <div className="">
                     <a
