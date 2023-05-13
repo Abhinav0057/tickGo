@@ -21,17 +21,7 @@ function EventDetailSection(props) {
                   </h2>
                   <a className="btn mx-3 btn-danger text-white">Follow</a>
                 </div>
-                <p className="prah mt-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Suscipit, veniam in voluptate, dignissimos provident for the
-                  reprehenderit eius itaque magni error beatae quaerat
-                  accusantium nobis numquam, praesentium aperiam recusandae
-                  consequatur nam. Ipsum. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Dolorem, corporis. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Cumque deserunt possimus
-                  exercitationem! Quaerat consectetur nisi beatae ullam quo
-                  molestias laboriosam.
-                </p>
+                <p className="prah mt-3"></p>
                 <h2 className="headn">Share this event</h2>
                 <div className="imgwrapper mt-3">
                   {/* <img src={eventfb} alt="" />
@@ -92,30 +82,11 @@ function EventDetailSection(props) {
                 <p className="prah mt-3">
                   <div
                     dangerouslySetInnerHTML={{
-                      __html:
-                        props?.myEventData?.description ??
-                        `  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Suscipit, veniam in voluptate, dignissimos provident for the
-                  reprehenderit eius itaque magni error beatae quaerat
-                  accusantium nobis numquam, praesentium aperiam recusandae
-                  consequatur nam. Ipsum. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Dolorem, corporis. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Cumque deserunt possimus
-                  exercitationem! Quaerat consectetur nisi beatae ullam quo
-                  molestias laboriosam.`,
+                      __html: props?.myEventData?.description ?? `-`,
                     }}
                   ></div>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Suscipit, veniam in voluptate, dignissimos provident for the
-                  reprehenderit eius itaque magni error beatae quaerat
-                  accusantium nobis numquam, praesentium aperiam recusandae
-                  consequatur nam. Ipsum. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Dolorem, corporis. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Cumque deserunt possimus
-                  exercitationem! Quaerat consectetur nisi beatae ullam quo
-                  molestias laboriosam.
                 </p>
-                <h2 className="headn">Share this event</h2>
+
                 <div className="imgwrapper mt-3">
                   {/* <img src={eventfb} alt="" />
 									<img src={eventemail} alt="" />

@@ -8,6 +8,9 @@ const getSpells = () => () => {
   //use api.sth.sth
   return httpClient.get(api.events.fetch);
 };
+const getSpellsUnpublished = () => () => {
+  return httpClient.get(api.events.fetchUnpublished);
+};
 export const postEvent = (body) => {
   return httpClient.post(api.events.post, body);
 };
@@ -30,9 +33,24 @@ const handleBookTicket = (params) => (params) => {
     params.body
   );
 };
+const handleVerifyBook = (params) => (params) => {
+  return httpClient.post(
+    api.events.verifyBooking.replace("{id}", params.id),
+    params.body
+  );
+};
 
 export const useGetEvents = () => {
   return useQuery(api.events.fetch, getSpells(), {
+    select: (response) => response.data,
+    onError: (error) => {
+      //   toastFail(error?.response?.data?.message || "Something Went Wrong");
+    },
+  });
+};
+
+export const useGetUnpublishedEvents = () => {
+  return useQuery(api.events.fetch, getSpellsUnpublished(), {
     select: (response) => response.data,
     onError: (error) => {
       //   toastFail(error?.response?.data?.message || "Something Went Wrong");
@@ -91,9 +109,10 @@ export const useTooglePublishHandler = (id) => {
     toggleEventPublish(id),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries({
-          queryKey: [api.events.fetch],
-        });
+        queryClient.invalidateQueries([
+          api.events.fetch,
+          api.events.fetchUnpublished,
+        ]);
       },
     }
   );
@@ -104,6 +123,20 @@ export const useBookTicketHandler = (params) => {
   return useMutation(
     [api.events.bookEvent, params?.id],
     handleBookTicket(params),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: [api.events.fetch],
+        });
+      },
+    }
+  );
+};
+export const useVerifyBookiingHandler = (params) => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    [api.events.bookEvent, params?.id],
+    handleVerifyBook(params),
     {
       onSuccess: () => {
         queryClient.invalidateQueries({

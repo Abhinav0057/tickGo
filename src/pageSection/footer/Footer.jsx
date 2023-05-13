@@ -26,36 +26,16 @@ export default function Footer() {
               <h5 className="text-uppercase text-white mb-4 font-weight-bold ">
                 Product
               </h5>
-              <p>
-                <a href="/" className="text-white mt-3">
-                  {" "}
-                  The Providers
-                </a>
-              </p>
+              <p></p>
               <p>
                 <a href="/" className="text-white">
                   {" "}
                   Service{" "}
                 </a>
               </p>
-              <p>
-                <a href="/" className="text-white">
-                  {" "}
-                  Price{" "}
-                </a>
-              </p>
-              <p>
-                <a href="/" className="text-white">
-                  {" "}
-                  Rooms{" "}
-                </a>
-              </p>
-              <p>
-                <a href="/" className="text-white">
-                  {" "}
-                  Extra
-                </a>
-              </p>
+              <p></p>
+              <p></p>
+              <p></p>
             </div>
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
               <h5 className="text-uppercase text-white mb-4 font-weight-bold ">
@@ -72,11 +52,7 @@ export default function Footer() {
                     Terms and Condition
                   </Link>
                 </li>
-                <li className="mt-3">
-                  <Link to="/Privacy" className="text-white ">
-                    Privacy
-                  </Link>
-                </li>
+                <li className="mt-3"></li>
               </ul>
             </div>
 

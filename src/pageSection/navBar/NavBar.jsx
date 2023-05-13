@@ -22,6 +22,10 @@ export default function NavBar() {
   const navBarData = useNavBar();
   const userProfileData = useGetUserProfile();
   const userRole = useGetUserRole();
+  // localStorage.setItem(
+  //   "token",
+  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzODg5ODY5LTg5NWYtNDA0NS1iNjRkLTE5ZjhmY2YwN2Q3MiIsInJvbGVzIjoic3VwZXJhZG1pbiIsImlhdCI6MTY4MzY5ODAyOH0.DYX2UNHRlC--ehM8APUG1DnmtkaHQODrMCc-bOP-uaY"
+  // );
 
   return (
     <div style={{ cursor: "pointer" }}>
@@ -148,7 +152,7 @@ export default function NavBar() {
                     className="active "
                     style={{ Color: "white" }}
                   >
-                    Un/publish event
+                    My Events
                   </Link>
                 </Nav>
               </>
@@ -164,24 +168,11 @@ export default function NavBar() {
                 maxWidth: "150px",
               }}
             >
-              {/* <Link to="/TicketSelection" className="active "> */}
-              Tickets
-              {/* </Link> */}
-            </Nav>
-            <Nav
-              className="mx-4"
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                letterSpacing: "2px",
-                maxWidth: "150px",
-                alignItems: "center",
-                padding: 4,
-              }}
-            >
-              {/* <Link to="/About" className="active "> */}
-              About
-              {/* </Link> */}
+              {userRole?.roles?.toLowerCase() == "company" && (
+                <Link to="/company-dashboard" className="active ">
+                  Dashboard
+                </Link>
+              )}
             </Nav>
 
             <Nav
@@ -214,21 +205,42 @@ export default function NavBar() {
                 {/* </a> */}
               </Link>
             </Nav>
-            <Nav
-              className="mx-4"
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                letterSpacing: "2px",
-                padding: 4,
-                maxWidth: "150px",
-                alignItems: "center",
-              }}
-            >
-              <Button variant="danger" onClick={() => setButtonPopup(true)}>
-                Login
-              </Button>{" "}
-            </Nav>
+            {userRole?.roles ? (
+              <Nav
+                className="mx-4"
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  letterSpacing: "2px",
+                  padding: 4,
+                  maxWidth: "150px",
+                  alignItems: "center",
+                }}
+              >
+                <Button
+                  variant="danger"
+                  onClick={() => localStorage.setItem("token", "")}
+                >
+                  Logout
+                </Button>{" "}
+              </Nav>
+            ) : (
+              <Nav
+                className="mx-4"
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  letterSpacing: "2px",
+                  padding: 4,
+                  maxWidth: "150px",
+                  alignItems: "center",
+                }}
+              >
+                <Button variant="danger" onClick={() => setButtonPopup(true)}>
+                  Login
+                </Button>{" "}
+              </Nav>
+            )}
           </Nav>
           {/* <Nav className="me-auto">
 						<Nav.Link href="#features">Features</Nav.Link>
