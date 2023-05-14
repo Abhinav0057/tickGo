@@ -26,6 +26,9 @@ const toggleEventApproval = (id) => (id) => {
 const toggleEventPublish = (id) => (id) => {
   return httpClient.put(api.events.togglePublishStatus.replace("{id}", id));
 };
+const checkInTicketHandler = (id) => (id) => {
+  return httpClient.post(api.events.checkinTicket.replace("{id}", id));
+};
 
 const handleBookTicket = (params) => (params) => {
   return httpClient.post(
@@ -116,6 +119,13 @@ export const useTooglePublishHandler = (id) => {
       },
     }
   );
+};
+export const useCheckInTicketHandler = (id) => {
+  const queryClient = useQueryClient();
+
+  return useMutation([api.events.checkinTicket, id], checkInTicketHandler(id), {
+    onSuccess: () => {},
+  });
 };
 
 export const useBookTicketHandler = (params) => {

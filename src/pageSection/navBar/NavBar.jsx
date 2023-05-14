@@ -22,10 +22,6 @@ export default function NavBar() {
   const navBarData = useNavBar();
   const userProfileData = useGetUserProfile();
   const userRole = useGetUserRole();
-  // localStorage.setItem(
-  //   "token",
-  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzODg5ODY5LTg5NWYtNDA0NS1iNjRkLTE5ZjhmY2YwN2Q3MiIsInJvbGVzIjoic3VwZXJhZG1pbiIsImlhdCI6MTY4MzY5ODAyOH0.DYX2UNHRlC--ehM8APUG1DnmtkaHQODrMCc-bOP-uaY"
-  // );
 
   return (
     <div style={{ cursor: "pointer" }}>
