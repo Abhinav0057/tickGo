@@ -25,7 +25,7 @@ export const routes = [
       <>
         <NavBar />
         <Home />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -41,7 +41,7 @@ export const routes = [
       <>
         <NavBar isLogin={true} />
         <Home isLogin={true} />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -57,7 +57,7 @@ export const routes = [
       <>
         <NavBar />
         <Signup />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -73,7 +73,7 @@ export const routes = [
       <>
         <NavBar />
         <Userhomepage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -89,7 +89,7 @@ export const routes = [
       <>
         <NavBar />
         <CompanyDashboard />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -106,7 +106,7 @@ export const routes = [
         <NavBar />
         <SignupSecondUser />
 
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -122,7 +122,7 @@ export const routes = [
       <>
         <NavBar />
         <SignupCompany />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -138,7 +138,7 @@ export const routes = [
       <>
         <NavBar />
         <EventHomePage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -154,7 +154,7 @@ export const routes = [
       <>
         <NavBar />
         <EventTicketPage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -170,7 +170,7 @@ export const routes = [
       <>
         <NavBar />
         <CheckoutPage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -186,7 +186,7 @@ export const routes = [
       <>
         <NavBar />
         <PyamentVeificationpage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -202,7 +202,7 @@ export const routes = [
       <>
         <NavBar />
         <CreateEvent />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -218,7 +218,7 @@ export const routes = [
       <>
         <NavBar />
         <CompanyEventToggle></CompanyEventToggle>
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -234,7 +234,7 @@ export const routes = [
       <>
         <NavBar />
         <UnapprovedEventsList />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -250,7 +250,7 @@ export const routes = [
       <>
         <NavBar />
         <ApprovedEventsList />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 

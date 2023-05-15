@@ -82,7 +82,14 @@ function CompanyDashboard() {
         <h2>Your Event Dashboard</h2>
         {eventDetailsStats && (
           <div>
-            We are inside
+            <div className="text-left">
+              <button
+                className="btn btn-primary"
+                onClick={() => setEventDetailStats("")}
+              >
+                Go Back
+              </button>
+            </div>
             <TableCompanyTicketsBoughts
               eventDetailsStats={eventDetailsStats}
               setCallAgainHandler={setCallAgainHandler}

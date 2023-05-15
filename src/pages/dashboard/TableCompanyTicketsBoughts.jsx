@@ -4,6 +4,7 @@ import { useCheckInTicketHandler } from "../../services/fetchers/event/event";
 
 function TableCompanyTicketsBoughts(props) {
   const { mutateAsync, error, mutate } = useCheckInTicketHandler();
+
   const handleCkecinHandler = async (ticket) => {
     console.log(ticket);
     const returnData = await mutateAsync(ticket.id);
@@ -71,6 +72,9 @@ function TableCompanyTicketsBoughts(props) {
     <div>
       {props.eventDetailsStats?.length > 0 && (
         <ReactTable data={data} columns={columnsTable}></ReactTable>
+      )}
+      {props.eventDetailsStats?.length == 0 && (
+        <div className="text-center text-danger">No data to preview</div>
       )}
     </div>
   );

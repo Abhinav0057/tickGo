@@ -18,7 +18,7 @@ export const httpClient = {
   post: (url, data, config) =>
     axios.post(url, data, {
       ...baseConfig,
-      data,
+
       ...config,
     }),
 

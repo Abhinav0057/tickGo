@@ -6,6 +6,7 @@ import React from "react";
 import { useFieldArray, Controller, useWatch } from "react-hook-form";
 import ErrorMessageComponent from "../../UI/ErrorMessageComponent";
 import ReactQuill from "react-quill";
+import { toFormData } from "../../services/http-helpers";
 
 import { usePostAEvent } from "../../services/fetchers/event/event";
 const CreateEvent = () => {
@@ -51,44 +52,45 @@ const CreateEvent = () => {
       venue: beforeFormData?.eventLocation,
       categories: [beforeFormData?.eventCategory],
       images: beforeFormData?.eventImages,
-      cover: 1,
+      cover: 0,
       type: beforeFormData?.eventTypeIs,
       recurring: beforeFormData?.evenrRecurring,
       startDate: beforeFormData?.eventStartDate,
       endDate: beforeFormData?.eventEndDate,
       location: beforeFormData?.eventLocationLink,
     };
-    const formData = new FormData();
+    const formDataPayload = toFormData(payload);
+    // const formData = new FormData();
 
-    for (let key in payload) {
-      if (key === "ticketTypes") {
-        for (let i = 0; i < payload.ticketTypes.length; i++) {
-          const ticketType = payload.ticketTypes[i];
-          for (let ticketKey in ticketType) {
-            const ticketValue = ticketType[ticketKey];
-            formData.append(`ticketTypes[${i}][${ticketKey}]`, ticketValue);
-          }
-        }
-      } else if (key === "categories" || key === "tags") {
-        for (let i = 0; i < payload[key].length; i++) {
-          formData.append(`${key}[${i}]`, payload[key][i]);
-        }
-      } else if (key === "images") {
-        for (let i = 0; i < payload.images.length; i++) {
-          const image = payload.images[i];
-          console.log(image);
-          formData.append(`images[${i}]`, "");
-        }
-      } else {
-        formData.append(key, payload[key]);
-      }
-    }
     console.log(payload.images);
-    for (const entry of formData) {
+    for (const entry of formDataPayload) {
       console.log(entry[0], entry[1]);
     }
 
-    const responseData = await mutateAsync(formData);
+    const responseData = await mutateAsync(formDataPayload);
+    // for (let key in payload) {
+    //   if (key === "ticketTypes") {
+    //     for (let i = 0; i < payload.ticketTypes.length; i++) {
+    //       const ticketType = payload.ticketTypes[i];
+    //       for (let ticketKey in ticketType) {
+    //         const ticketValue = ticketType[ticketKey];
+    //         formData.append(`ticketTypes[${i}][${ticketKey}]`, ticketValue);
+    //       }
+    //     }
+    //   } else if (key === "categories" || key === "tags") {
+    //     for (let i = 0; i < payload[key].length; i++) {
+    //       formData.append(`${key}[${i}]`, payload[key][i]);
+    //     }
+    //   } else if (key === "images") {
+    //     for (let i = 0; i < payload.images.length; i++) {
+    //       const image = payload.images[i];
+    //       console.log(image);
+    //       formData.append(`images[${i}]`, image);
+    //     }
+    //   } else {
+    //     formData.append(key, payload[key]);
+    //   }
+    // }
   };
   return (
     <Container className="createEvent d-block">

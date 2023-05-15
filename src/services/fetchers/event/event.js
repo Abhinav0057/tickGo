@@ -12,7 +12,11 @@ const getSpellsUnpublished = () => () => {
   return httpClient.get(api.events.fetchUnpublished);
 };
 export const postEvent = (body) => {
-  return httpClient.post(api.events.post, body);
+  return httpClient.post(api.events.post, body, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
 const getUnapprovedEvents = () => () => {
   return httpClient.get(api.events.getUnapprovedEvents);
