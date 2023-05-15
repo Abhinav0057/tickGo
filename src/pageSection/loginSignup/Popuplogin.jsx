@@ -10,12 +10,14 @@ import {
   useGetUserProfile,
   useGetUserRole,
 } from "../../services/fetchers/user/user";
+import { useNavigate } from "react-router-dom";
 
 // import Signup from "./Signup";
 // import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom"
 
 function Popuplogin(props) {
+  const navigate = useNavigate();
   const { mutateAsync, error, mutate } = useLogin();
   const {
     isLoading: isLoadingUserProfile,
@@ -37,6 +39,8 @@ function Popuplogin(props) {
       const now = new Date("2024-01-02");
 
       localStorage.setItem("tokenExpiration", now);
+      navigate("/");
+      props.setTrigger(() => false);
     }
   };
 
@@ -44,7 +48,7 @@ function Popuplogin(props) {
     props.trigger && (
       <div className="popup">
         <div className="popup-inner ">
-          <div className=" w-100" style={{ paddingLeft: "95%" }}>
+          {/* <div className=" w-100" style={{ paddingLeft: "95%" }}>
             <a
               className=""
               style={{ color: "red", display: "block", cursor: "pointer" }}
@@ -58,7 +62,7 @@ function Popuplogin(props) {
             >
               x{userRole?.roles}
             </a>
-          </div>
+          </div> */}
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="ui divider"></div>

@@ -77,7 +77,7 @@ const CreateEvent = () => {
         for (let i = 0; i < payload.images.length; i++) {
           const image = payload.images[i];
           console.log(image);
-          formData.append(`images[${i}]`, image);
+          formData.append(`images[${i}]`, "");
         }
       } else {
         formData.append(key, payload[key]);

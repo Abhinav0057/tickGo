@@ -37,8 +37,17 @@ export default function UnapprovedEventsList() {
                   <div>Event Type: {String(unappEvent?.type)}</div>
                   <div>Venue: {String(unappEvent?.venue)}</div>
                   <div>Event Created date: {String(unappEvent?.createdAt)}</div>
-                  <div>Event Start date: {String(unappEvent?.startDate)}</div>
-                  <div>Event End date: {String(unappEvent?.endDate)}</div>
+                  <div>
+                    Event Start date:{" "}
+                    {new Date(unappEvent?.startDate).toLocaleDateString()} at{" "}
+                    {new Date(unappEvent?.startDate).toLocaleTimeString()}{" "}
+                  </div>
+
+                  <div>
+                    Event End date:{" "}
+                    {new Date(unappEvent?.endDate).toLocaleDateString()} at{" "}
+                    {new Date(unappEvent?.endDate).toLocaleTimeString()}{" "}
+                  </div>
                   {!unappEvent?.isPublished && (
                     <div className="text-success">Event Publised</div>
                   )}
@@ -68,9 +77,18 @@ export default function UnapprovedEventsList() {
                   <h5>Event Name: {String(unappEvent?.title)}</h5>
                   <div>Event Type: {String(unappEvent?.type)}</div>
                   <div>Venue: {String(unappEvent?.venue)}</div>
-                  <div>Event Created date: {String(unappEvent?.createdAt)}</div>
-                  <div>Event Start date: {String(unappEvent?.startDate)}</div>
-                  <div>Event End date: {String(unappEvent?.endDate)}</div>
+                  {/* <div>Event Created date: {String(unappEvent?.createdAt)}</div> */}
+                  <div>
+                    Event Start date:{" "}
+                    {new Date(unappEvent?.startDate).toLocaleDateString()} at{" "}
+                    {new Date(unappEvent?.startDate).toLocaleTimeString()}{" "}
+                  </div>
+
+                  <div>
+                    Event End date:{" "}
+                    {new Date(unappEvent?.endDate).toLocaleDateString()} at{" "}
+                    {new Date(unappEvent?.endDate).toLocaleTimeString()}{" "}
+                  </div>
                   {!unappEvent?.isPublished && (
                     <div className="text-danger">Event Not Published</div>
                   )}

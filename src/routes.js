@@ -16,6 +16,7 @@ import CheckoutPage from "./pages/checkoutpage/CheckoutPage";
 import Userhomepage from "./pages/userhomepage/Userhomepage";
 import PyamentVeificationpage from "./pages/checkoutpage/PyamentVeificationpage";
 import CompanyDashboard from "./pages/dashboard/CompanyDashboard";
+import { useNavigate } from "react-router-dom";
 
 export const routes = [
   {
@@ -24,6 +25,22 @@ export const routes = [
       <>
         <NavBar />
         <Home />
+        <Footer />
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: (
+      <>
+        <NavBar isLogin={true} />
+        <Home isLogin={true} />
         <Footer />
       </>
     ),
@@ -245,6 +262,6 @@ export const routes = [
   },
 ];
 
-export const AppRouter = () => (
-  <RouterProvider router={createBrowserRouter(routes)} />
-);
+export const AppRouter = () => {
+  return <RouterProvider router={createBrowserRouter(routes)} />;
+};

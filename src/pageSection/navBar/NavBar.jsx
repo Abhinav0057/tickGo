@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 
 // import '../../Styles/Navbarlive.css';
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useNavBar } from "./useNavBar";
+import { useNavigate } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -16,12 +17,23 @@ import {
   useGetUserRole,
 } from "../../services/fetchers/user/user";
 
-export default function NavBar() {
+export default function NavBar(props) {
   //   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const [buttonPopup, setButtonPopup] = React.useState(false);
   const navBarData = useNavBar();
   const userProfileData = useGetUserProfile();
   const userRole = useGetUserRole();
+  useEffect(() => {
+    if (props.isLogin) {
+      setButtonPopup(() => true);
+    }
+  }, [props.isLogin]);
+  useEffect(() => {
+    if (!userRole?.roles) {
+      if (!window.location.href.includes("signup")) navigate("/login");
+    }
+  }, [window.location.href]);
 
   return (
     <div style={{ cursor: "pointer" }}>
@@ -69,25 +81,27 @@ export default function NavBar() {
             className="text-right mx-4"
             style={{ color: "white", alignItems: "center" }}
           >
-            <Nav
-              className="mx-4"
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                letterSpacing: "2px",
-                maxWidth: "150px",
-                padding: 4,
-                alignItems: "center",
-              }}
-            >
-              <Link
-                to="/organizer/create-event"
-                className="active "
-                style={{ Color: "white" }}
+            {userRole?.roles?.toLowerCase() == "company" && (
+              <Nav
+                className="mx-4"
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  letterSpacing: "2px",
+                  maxWidth: "150px",
+                  padding: 4,
+                  alignItems: "center",
+                }}
               >
-                Create Event
-              </Link>
-            </Nav>
+                <Link
+                  to="/organizer/create-event"
+                  className="active "
+                  style={{ Color: "white" }}
+                >
+                  Create Event
+                </Link>
+              </Nav>
+            )}
             {userRole?.roles?.toLowerCase() == "superadmin" && (
               <>
                 <Nav
@@ -170,37 +184,39 @@ export default function NavBar() {
                 </Link>
               )}
             </Nav>
+            {userRole?.roles && (
+              <Nav
+                className="mx-4"
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  padding: 4,
+                  letterSpacing: "2px",
+                  alignItems: "center",
+                  maxWidth: "150px",
+                }}
+              >
+                {/* <a href="/"> */}
 
-            <Nav
-              className="mx-4"
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                padding: 4,
-                letterSpacing: "2px",
-                alignItems: "center",
-                maxWidth: "150px",
-              }}
-            >
-              {/* <a href="/"> */}
-              <Link to={"/userhomepage"}>
-                <div
-                  className="fa-regular fa-circle-user"
-                  // onClick={() => {
-                  // 	setOpen(!open);
-                  // }}
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    letterSpacing: "2px",
-                    maxWidth: "150px",
-                  }}
-                >
-                  {userProfileData?.data?.name ?? "User"}
-                </div>
-                {/* </a> */}
-              </Link>
-            </Nav>
+                <Link to={"/userhomepage"}>
+                  <div
+                    className="fa-regular fa-circle-user"
+                    // onClick={() => {
+                    // 	setOpen(!open);
+                    // }}
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "500",
+                      letterSpacing: "2px",
+                      maxWidth: "150px",
+                    }}
+                  >
+                    {userProfileData?.data?.name ?? "User"}
+                  </div>
+                  {/* </a> */}
+                </Link>
+              </Nav>
+            )}
             {userRole?.roles ? (
               <Nav
                 className="mx-4"
@@ -215,7 +231,10 @@ export default function NavBar() {
               >
                 <Button
                   variant="danger"
-                  onClick={() => localStorage.setItem("token", "")}
+                  onClick={() => {
+                    localStorage.setItem("token", "");
+                    navigate("/login");
+                  }}
                 >
                   Logout
                 </Button>{" "}
