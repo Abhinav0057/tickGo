@@ -7,7 +7,7 @@ import { httpClient } from "../../services/http-helpers";
 import { api } from "../../services/api";
 import axios from "axios";
 import TableCompanyTicketsBoughts from "./TableCompanyTicketsBoughts";
-
+import { Spinner } from "react-bootstrap";
 function CompanyDashboard() {
   const getAllMyEvents = useGetEvents();
 
@@ -99,7 +99,13 @@ function CompanyDashboard() {
 
         <div className="container">
           {getAllMyEvents.isLoading && (
-            <h5 className="text-primary">Loading...</h5>
+            <>
+              <h5 className="text-primary">Loading...</h5>
+              <Spinner
+                style={{ height: "100px", width: "100px", color: "red" }}
+                animation="border"
+              />
+            </>
           )}
           {getAllMyEvents.isError && (
             <h5 className="text-danger">Something Went Wrong...</h5>

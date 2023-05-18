@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 
 import { api } from "../../api";
 import { httpClient } from "../../http-helpers";
+import { toast } from "react-toastify";
 
 const getSpells = () => () => {
   //use api.sth.sth
@@ -57,7 +58,7 @@ export const useGetEvents = () => {
 };
 
 export const useGetUnpublishedEvents = () => {
-  return useQuery(api.events.fetch, getSpellsUnpublished(), {
+  return useQuery(api.events.fetchUnpublished, getSpellsUnpublished(), {
     select: (response) => response.data,
     onError: (error) => {
       //   toastFail(error?.response?.data?.message || "Something Went Wrong");
@@ -71,6 +72,10 @@ export const usePostAEvent = () => {
       // queryClient.invalidateQueries({
       //   queryKey: [api.events.fetch],
       // });
+      toast.success("Successfully posted event");
+    },
+    onError: () => {
+      toast.error("Something went wrong");
     },
   });
 };
@@ -115,11 +120,20 @@ export const useTooglePublishHandler = (id) => {
     [api.events.toggleEventPublish, id],
     toggleEventPublish(id),
     {
+      // onSuccess: () => {
+      //   queryClient.invalidateQueries([
+      //     api.events.fetch,
+      //     api.events.fetchUnpublished,
+      //   ]);
+      // },
+
       onSuccess: () => {
-        queryClient.invalidateQueries([
-          api.events.fetch,
-          api.events.fetchUnpublished,
-        ]);
+        queryClient.invalidateQueries(api.events.fetch);
+        queryClient.invalidateQueries(api.events.fetchUnpublished);
+        toast.success("Event toggled successfully");
+      },
+      onError: () => {
+        toast.error("Event not yet approved");
       },
     }
   );
@@ -128,7 +142,14 @@ export const useCheckInTicketHandler = (id) => {
   const queryClient = useQueryClient();
 
   return useMutation([api.events.checkinTicket, id], checkInTicketHandler(id), {
-    onSuccess: () => {},
+    onSuccess: () => {
+      queryClient.invalidateQueries(api.events.checkinTicket);
+
+      toast.success("Ticket checkedin successfully");
+    },
+    onError: () => {
+      toast.error("Something went wrong");
+    },
   });
 };
 
@@ -156,6 +177,10 @@ export const useVerifyBookiingHandler = (params) => {
         queryClient.invalidateQueries({
           queryKey: [api.events.fetch],
         });
+        toast.success("Booked successfully");
+      },
+      onError: () => {
+        toast.error("Something went wrong");
       },
     }
   );

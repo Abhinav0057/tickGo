@@ -4,7 +4,7 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
   return (
     <div ref={ref}>
       <div
-        className="card  justify-content-center m-5 "
+        className="   m-5 "
         style={{ backgroundColor: "rgba(51, 177, 224, 0.25)", height: "100%" }}
       >
         <div className="card-body p-0 m-2 ">
@@ -106,6 +106,58 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
             </h5>
             <h4>Payment Partner : {"Khalti".toUpperCase()}</h4>
             <h6>Payment Id : {props.printTicketPayload?.id}</h6>
+          </div>
+        </div>
+        <div className="d-flex justify-content-between flex-row  mb-1">
+          <div>
+            <h2 className="fw-bolder"></h2>
+            <div
+              className="text-sm-end"
+              style={{ height: "80px", width: "200px" }}
+            >
+              <div href="#" className="d-block mw-150px ms-sm-auto">
+                {" "}
+                <div className="logo" style={{ color: "white" }}>
+                  <div
+                    style={{
+                      color: "black",
+                      fontSize: "32px",
+                      fontWeight: "700",
+                    }}
+                    className=""
+                  >
+                    Ticket
+                    <span className="go" style={{ color: "red" }}>
+                      Go
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="text-sm-end"
+            style={{ height: "80px", width: "200px" }}
+          >
+            <div href="#" className="d-block mw-150px ms-sm-auto">
+              {" "}
+              <div className="logo" style={{ color: "white" }}>
+                <div
+                  style={{
+                    color: "black",
+                    fontSize: "32px",
+                    fontWeight: "700",
+                  }}
+                  className=""
+                >
+                  Ticket
+                  <span className="go" style={{ color: "red" }}>
+                    Go
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

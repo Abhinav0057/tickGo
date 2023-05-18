@@ -1,6 +1,7 @@
 import React from "react";
 import { useGetApprovedEvents } from "../../services/fetchers/event/event";
 import { useToogleEventApproval } from "../../services/fetchers/event/event";
+import { Spinner } from "react-bootstrap";
 
 export default function ApprovedEventsList() {
   const unApprovedEvents = useGetApprovedEvents();
@@ -14,7 +15,15 @@ export default function ApprovedEventsList() {
       <div className="mt-5">
         <h2> Event Control Panel</h2>
         {unApprovedEvents.isLoading && (
-          <h5 className="text-primary">Loading...</h5>
+          <>
+            {" "}
+            <h5 className="text-primary">Loading...</h5>
+            <Spinner
+              className="mt-2"
+              style={{ height: "100px", width: "100px", color: "red" }}
+              animation="border"
+            />
+          </>
         )}
         {unApprovedEvents.isError && (
           <h5 className="text-danger">Something Went Wrong...</h5>

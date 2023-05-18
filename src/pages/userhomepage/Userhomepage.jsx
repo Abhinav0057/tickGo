@@ -4,6 +4,7 @@ import { useGetUserProfile } from "../../services/fetchers/user/user";
 import { useGetAllMyUserTickets } from "../../services/fetchers/user/user";
 import { useReactToPrint } from "react-to-print";
 import { NewPdfPrint } from "./NewPdfPrint";
+import { Spinner } from "react-bootstrap";
 function Userhomepage() {
   const userProfileData = useGetUserProfile();
   const userBookedTickets = useGetAllMyUserTickets();
@@ -32,7 +33,15 @@ function Userhomepage() {
         </div>
         <div className=" mt-5 mb-5 container">
           {userBookedTickets?.isLoading && (
-            <div className="text-center">Loading Tickets...</div>
+            <div className="text-center">
+              Loading Tickets...
+              <div className="mt-2">
+                <Spinner
+                  style={{ height: "100px", width: "100px", color: "red" }}
+                  animation="border"
+                />
+              </div>
+            </div>
           )}
           {userBookedTickets?.isError && (
             <div className="text-center text-danger">Something went wrong</div>

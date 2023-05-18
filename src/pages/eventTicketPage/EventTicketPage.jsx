@@ -14,15 +14,15 @@ function EventTicketPage(props) {
       <div className="section  pt-3 pb-3"></div>
       <div className="section pt-5">
         <div className="row pt-5">
-          <h4 className="text-center"> Ticket Types</h4>
+          <h4 className="text-center pb-1 "> Ticket Types</h4>
           <div className="row">
             {eventTickets?.currnetSelectedTicketsToBuy?.map((data, i) => (
-              <div className="col-md-6 col-12   m-0 pb-5">
+              <div className="col-md-6 col-12   pt-5 pb-5">
                 <div
                   style={{
                     width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
+                    // display: "flex",
+                    // justifyContent: "center",
                   }}
                 >
                   <div style={{ width: "300px" }}>
@@ -39,27 +39,27 @@ function EventTicketPage(props) {
                           className="text-bold"
                           style={{ fontWeight: "800" }}
                         >
-                          {data.name}
+                          {data?.name}
                         </div>
                       </div>
                       <div
                         className="header"
                         style={{ wordWrap: "break-word" }}
                       >
-                        {data.description}
+                        {data?.description}
                       </div>
                       <div
                         className="header text-danger"
                         style={{ wordWrap: "break-word" }}
                       >
-                        Total Remaning Ticket: {data.count}
+                        Total Remaning Ticket: {data?.count}
                       </div>
                       <div className="pt-2 text-center pb-2">
                         <div
                           className="text-bold"
                           style={{ fontWeight: "600" }}
                         >
-                          Rs {data.price} per
+                          Rs {data?.price} per
                         </div>
                       </div>
                       <div className="pt-2 text-center pb-2">
@@ -78,7 +78,7 @@ function EventTicketPage(props) {
                               padding: "0px 4px",
                             }}
                             onClick={() => {
-                              eventTickets.decreaseTicketCountHandler(data.id);
+                              eventTickets.decreaseTicketCountHandler(data?.id);
                             }}
                           >
                             -
@@ -88,16 +88,17 @@ function EventTicketPage(props) {
                               padding: "0px 4px",
                             }}
                           >
-                            {data.currentSelectedValue}
+                            {data?.currentSelectedValue}
                           </span>
                           <a
                             style={{
                               backgroundColor: "white",
                               color: "black",
                               padding: "0px 4px",
+                              
                             }}
                             onClick={() => {
-                              eventTickets.increaseTicketCountHandler(data.id);
+                              eventTickets.increaseTicketCountHandler(data?.id);
                             }}
                           >
                             +

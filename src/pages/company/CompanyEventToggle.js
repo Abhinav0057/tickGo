@@ -2,6 +2,7 @@ import React from "react";
 import { useGetEvents } from "../../services/fetchers/event/event";
 import { useGetUnpublishedEvents } from "../../services/fetchers/event/event";
 import { useTooglePublishHandler } from "../../services/fetchers/event/event";
+import { Spinner } from "react-bootstrap";
 
 export default function UnapprovedEventsList() {
   const getAllMyEvents = useGetEvents();
@@ -16,7 +17,13 @@ export default function UnapprovedEventsList() {
       <div className="mt-5">
         <h2> Event Control Panel</h2>
         {getAllMyEvents.isLoading && (
-          <h5 className="text-primary">Loading...</h5>
+          <>
+            <h5 className="text-primary">Loading...</h5>
+            <Spinner
+              style={{ height: "100px", width: "100px", color: "red" }}
+              animation="border"
+            />
+          </>
         )}
         {getAllMyEvents.isError && (
           <h5 className="text-danger">Something Went Wrong...</h5>
@@ -65,8 +72,7 @@ export default function UnapprovedEventsList() {
               </div>
             );
           })}
-        {getAllMyEventsUnpublised.isSuccess &&
-          getAllMyEventsUnpublised.data?.length > 0 &&
+        {getAllMyEventsUnpublised?.data?.length > 0 &&
           getAllMyEventsUnpublised.data[0]?.map((unappEvent) => {
             return (
               <div
@@ -74,7 +80,7 @@ export default function UnapprovedEventsList() {
                 style={{ background: "#FFFFFF", borderRadius: "10px" }}
               >
                 <div className="card-body">
-                  <h5>Event Name: {String(unappEvent?.title)}</h5>
+                  <h5>Event Name1: {String(unappEvent?.title)}</h5>
                   <div>Event Type: {String(unappEvent?.type)}</div>
                   <div>Venue: {String(unappEvent?.venue)}</div>
                   {/* <div>Event Created date: {String(unappEvent?.createdAt)}</div> */}
