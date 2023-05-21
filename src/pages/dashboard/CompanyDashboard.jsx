@@ -24,6 +24,7 @@ function CompanyDashboard() {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
+      const token1 = localStorage.getItem("token");
       const url =
         "http://localhost:5000/apiV1" + api.stats.statsById.replace("{id}", id);
       console.log(token, url);
