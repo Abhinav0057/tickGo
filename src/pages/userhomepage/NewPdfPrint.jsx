@@ -1,6 +1,22 @@
 import React from "react";
+import QRCode from "qrcode";
+import { useState, useEffect } from "react";
 
 const NewPdfPrint = React.forwardRef((props, ref) => {
+  const [qrCodeData, setQRCodeData] = useState("");
+  useEffect(() => {
+    if (props.printTicketPayload?.id) {
+      // Generate the QR code data
+      const data = props.printTicketPayload?.id; // Replace with your string value
+      QRCode.toDataURL(data, (err, url) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        setQRCodeData(url);
+      });
+    }
+  }, [props]);
   return (
     <div ref={ref}>
       <div
@@ -64,7 +80,14 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
           </div>
           <div className="container">
             <div className=" p-4">
-              <div className="d-flex justify-content-center">
+              <div style={{ height: "300px", width: "300px" }} className="mb-3">
+                <img
+                  src={qrCodeData}
+                  alt="QR Code"
+                  style={{ height: "300px", width: "300px" }}
+                />
+              </div>
+              <div className="d-flex justify-content-center ">
                 <h3 className="text-center w-100">
                   {props.printTicketPayload?.event?.title?.toUpperCase()}
                 </h3>
@@ -108,6 +131,13 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
             <h6>Payment Id : {props.printTicketPayload?.id}</h6>
           </div>
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: "10px",
+          }}
+        ></div>
         <div className="d-flex justify-content-between flex-row  mb-1">
           <div>
             <h2 className="fw-bolder"></h2>

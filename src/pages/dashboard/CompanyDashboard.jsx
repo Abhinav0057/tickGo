@@ -25,8 +25,7 @@ function CompanyDashboard() {
     try {
       const token = localStorage.getItem("token");
       const url =
-        "https://tiket-go.onrender.com/apiV1" +
-        api.stats.statsById.replace("{id}", id);
+        "http://localhost:5000/apiV1" + api.stats.statsById.replace("{id}", id);
       console.log(token, url);
       const response = await axios.get(url, {
         headers: {
@@ -45,7 +44,7 @@ function CompanyDashboard() {
     // try {
     //   const token = localStorage.getItem("token");
     //   const url =
-    //     "https://tiket-go.onrender.com/apiV1" +
+    //     "http://localhost:5000/apiV1" +
     //     api.events.fetchByid.replace("{id}", id);
     //   console.log(token, url);
     //   const response = await axios.get(url, {

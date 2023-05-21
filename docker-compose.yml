@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  app:
+    container_name: docker-ticketgo-fe
+    build:
+      context: . # Specify the path to your React app's directory
+      dockerfile: Dockerfile             # Specify the Dockerfile used to build the React app
+    ports:
+      - 3000:3000                        # Map the container's port 3000 to host's port 3000 (adjust if necessary)
+ 
+  

@@ -17,6 +17,11 @@ import Userhomepage from "./pages/userhomepage/Userhomepage";
 import PyamentVeificationpage from "./pages/checkoutpage/PyamentVeificationpage";
 import CompanyDashboard from "./pages/dashboard/CompanyDashboard";
 import { useNavigate } from "react-router-dom";
+import AboutUs from "./UI/websitedescPages/AboutUs";
+import Privacypolicy from "./UI/websitedescPages/Privacypolicy";
+import CommunityGuideline from "./UI/websitedescPages/CommunityGuideline";
+import TermsAndConditions from "./UI/websitedescPages/TermsAndConditions";
+import Disclamer from "./UI/websitedescPages/Disclamer";
 
 export const routes = [
   {
@@ -25,6 +30,86 @@ export const routes = [
       <>
         <NavBar />
         <Home />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/about-us",
+    element: (
+      <>
+        <NavBar />
+        <AboutUs />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/terms-and-conditions",
+    element: (
+      <>
+        <NavBar />
+        <TermsAndConditions />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/community-guideline",
+    element: (
+      <>
+        <NavBar />
+        <CommunityGuideline />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/privacy-policy",
+    element: (
+      <>
+        <NavBar />
+        <Privacypolicy />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/company-disclamer",
+    element: (
+      <>
+        <NavBar />
+        <Disclamer />
         {/* <Footer /> */}
       </>
     ),
