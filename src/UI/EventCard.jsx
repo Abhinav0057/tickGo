@@ -1,5 +1,7 @@
 import React from "react";
 import defaultImage from "../assets/image/defaultConcert.jpg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function EventCard(props) {
   return (
@@ -11,21 +13,28 @@ function EventCard(props) {
           style={{ height: "250px", width: "100%" }}
         >
           {/* condition to see if image url is provided or use default  */}
-          {/* {props.currentPost.imageUrl ? (
-						<img
-							alt={'image'}
-							effect="blur"
-							src={props.imageUrl + props.currentPost.imageUrl}
-						/>
-					) : (
-						<img src={defaultImage} className="" alt="..." />
-					)} */}
-          <img
+          {props.eventData?.images?.length > 0 ? (
+            <img
+              alt={"image"}
+              effect="blur"
+              cache="true"
+              style={{ height: "250px", width: "100%", objectFit: "cover" }}
+              src={props.eventData?.images[0].name ?? defaultImage}
+            />
+          ) : (
+            <LazyLoadImage
+              src={defaultImage}
+              className=""
+              alt="..."
+              style={{ height: "250px", width: "100%", objectFit: "cover" }}
+            />
+          )}
+          {/* <img
             src={defaultImage}
             className=""
             alt="..."
             style={{ height: "250px", width: "100%", objectFit: "cover" }}
-          />
+          /> */}
         </div>
         <div className="card-body" style={{ width: "100%" }}>
           <div

@@ -16,6 +16,12 @@ import CheckoutPage from "./pages/checkoutpage/CheckoutPage";
 import Userhomepage from "./pages/userhomepage/Userhomepage";
 import PyamentVeificationpage from "./pages/checkoutpage/PyamentVeificationpage";
 import CompanyDashboard from "./pages/dashboard/CompanyDashboard";
+import { useNavigate } from "react-router-dom";
+import AboutUs from "./UI/websitedescPages/AboutUs";
+import Privacypolicy from "./UI/websitedescPages/Privacypolicy";
+import CommunityGuideline from "./UI/websitedescPages/CommunityGuideline";
+import TermsAndConditions from "./UI/websitedescPages/TermsAndConditions";
+import Disclamer from "./UI/websitedescPages/Disclamer";
 
 export const routes = [
   {
@@ -24,7 +30,103 @@ export const routes = [
       <>
         <NavBar />
         <Home />
-        <Footer />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/about-us",
+    element: (
+      <>
+        <NavBar />
+        <AboutUs />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/terms-and-conditions",
+    element: (
+      <>
+        <NavBar />
+        <TermsAndConditions />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/community-guideline",
+    element: (
+      <>
+        <NavBar />
+        <CommunityGuideline />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/privacy-policy",
+    element: (
+      <>
+        <NavBar />
+        <Privacypolicy />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/company-disclamer",
+    element: (
+      <>
+        <NavBar />
+        <Disclamer />
+        {/* <Footer /> */}
+      </>
+    ),
+
+    children: [
+      {
+        path: "child",
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: (
+      <>
+        <NavBar isLogin={true} />
+        <Home isLogin={true} />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -40,7 +142,7 @@ export const routes = [
       <>
         <NavBar />
         <Signup />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -56,7 +158,7 @@ export const routes = [
       <>
         <NavBar />
         <Userhomepage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -72,7 +174,7 @@ export const routes = [
       <>
         <NavBar />
         <CompanyDashboard />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -89,7 +191,7 @@ export const routes = [
         <NavBar />
         <SignupSecondUser />
 
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -105,7 +207,7 @@ export const routes = [
       <>
         <NavBar />
         <SignupCompany />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -121,7 +223,7 @@ export const routes = [
       <>
         <NavBar />
         <EventHomePage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -137,7 +239,7 @@ export const routes = [
       <>
         <NavBar />
         <EventTicketPage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -153,7 +255,7 @@ export const routes = [
       <>
         <NavBar />
         <CheckoutPage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -169,7 +271,7 @@ export const routes = [
       <>
         <NavBar />
         <PyamentVeificationpage />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -185,7 +287,7 @@ export const routes = [
       <>
         <NavBar />
         <CreateEvent />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -201,7 +303,7 @@ export const routes = [
       <>
         <NavBar />
         <CompanyEventToggle></CompanyEventToggle>
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -217,7 +319,7 @@ export const routes = [
       <>
         <NavBar />
         <UnapprovedEventsList />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -233,7 +335,7 @@ export const routes = [
       <>
         <NavBar />
         <ApprovedEventsList />
-        <Footer />
+        {/* <Footer /> */}
       </>
     ),
 
@@ -245,6 +347,6 @@ export const routes = [
   },
 ];
 
-export const AppRouter = () => (
-  <RouterProvider router={createBrowserRouter(routes)} />
-);
+export const AppRouter = () => {
+  return <RouterProvider router={createBrowserRouter(routes)} />;
+};

@@ -6,17 +6,27 @@ import "../../assets/CSS/Styles/Signup.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useForm } from "react-hook-form";
 import { useLogin } from "../../services/fetchers/auth/auth";
+import { toast } from "react-toastify";
 import {
   useGetUserProfile,
   useGetUserRole,
 } from "../../services/fetchers/user/user";
+import { useNavigate } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
 // import Signup from "./Signup";
 // import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom"
 
 function Popuplogin(props) {
-  const { mutateAsync, error, mutate } = useLogin();
+  const navigate = useNavigate();
+  const {
+    mutateAsync,
+    error,
+    mutate,
+    isError,
+    isLoading: isLoadingLogin,
+  } = useLogin();
   const {
     isLoading: isLoadingUserProfile,
     data: useProfileData,
@@ -35,8 +45,11 @@ function Popuplogin(props) {
     if (responseData?.data?.token) {
       localStorage.setItem("token", responseData?.data?.token?.access_token);
       const now = new Date("2024-01-02");
-
+      document.getElementById("loginForm").reset();
       localStorage.setItem("tokenExpiration", now);
+
+      navigate("/");
+      props.setTrigger(() => false);
     }
   };
 
@@ -44,7 +57,7 @@ function Popuplogin(props) {
     props.trigger && (
       <div className="popup">
         <div className="popup-inner ">
-          <div className=" w-100" style={{ paddingLeft: "95%" }}>
+          {/* <div className=" w-100" style={{ paddingLeft: "95%" }}>
             <a
               className=""
               style={{ color: "red", display: "block", cursor: "pointer" }}
@@ -58,9 +71,9 @@ function Popuplogin(props) {
             >
               x{userRole?.roles}
             </a>
-          </div>
+          </div> */}
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} id="loginForm">
             <div className="ui divider"></div>
             <div className="ui form">
               <div className="field">
@@ -98,25 +111,41 @@ function Popuplogin(props) {
                 </div>
               </div>
 
-              <button className="loginbtn" type="submit">
-                Login
-              </button>
+              {!isLoadingLogin && (
+                <button className="loginbtn" type="submit">
+                  Login
+                </button>
+              )}
+              {isLoadingLogin && (
+                <button className="loginbtn" type="submit">
+                  <Spinner
+                    className=""
+                    style={{ height: "20px", width: "20px", color: "white" }}
+                    animation="border"
+                  />
+                </button>
+              )}
             </div>
-            <dixv>
-              <p className="signup">
+
+            <div>
+              <p className="signup ">
                 Don't have an account?
-                <NavLink
-                  to="/signup"
-                  style={{
-                    marginLeft: "3px",
-                  }}
-                  className="signlink"
-                  onClick={() => props.setTrigger(() => false)}
-                >
-                  Sign up
-                </NavLink>
+                {isLoadingLogin ? (
+                  <span className="text-danger"> Sign Up</span>
+                ) : (
+                  <NavLink
+                    to="/signup"
+                    style={{
+                      marginLeft: "3px",
+                    }}
+                    className="signlink"
+                    onClick={() => props.setTrigger(() => false)}
+                  >
+                    Sign up
+                  </NavLink>
+                )}
               </p>
-            </dixv>
+            </div>
           </form>
         </div>
       </div>

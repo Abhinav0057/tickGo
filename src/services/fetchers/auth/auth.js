@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "react-query";
 import { api } from "../../api";
+import { toast } from "react-toastify";
 
 import { httpClient } from "../../http-helpers";
 
@@ -19,6 +20,10 @@ export const useLogin = () => {
       queryClient.invalidateQueries({
         queryKey: [api.user.userprofile],
       });
+      toast.success("Successfully logged in");
+    },
+    onError: () => {
+      toast.error("Invalid Credentials");
     },
   });
 };

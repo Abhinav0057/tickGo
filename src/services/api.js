@@ -14,6 +14,7 @@ export const api = {
     togglePublishStatus: "/event/toggle-publish/{id}",
     bookEvent: "/event/book/{id}",
     verifyBooking: "/event/verify-booking/{id}",
+    checkinTicket: "/event/check-in/{id}",
   },
   user: {
     userprofile: "/user",
@@ -28,5 +29,8 @@ export const api = {
   payment: {
     postKhaltiPayment: "/payment/khalti-pay",
   },
-  stats: {},
+  stats: {
+    statsById: "/stats/tickets/{id}",
+    statsAll: "/stats/",
+  },
 };

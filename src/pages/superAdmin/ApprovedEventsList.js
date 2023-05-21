@@ -1,6 +1,7 @@
 import React from "react";
 import { useGetApprovedEvents } from "../../services/fetchers/event/event";
 import { useToogleEventApproval } from "../../services/fetchers/event/event";
+import { Spinner } from "react-bootstrap";
 
 export default function ApprovedEventsList() {
   const unApprovedEvents = useGetApprovedEvents();
@@ -14,7 +15,15 @@ export default function ApprovedEventsList() {
       <div className="mt-5">
         <h2> Event Control Panel</h2>
         {unApprovedEvents.isLoading && (
-          <h5 className="text-primary">Loading...</h5>
+          <>
+            {" "}
+            <h5 className="text-primary">Loading...</h5>
+            <Spinner
+              className="mt-2"
+              style={{ height: "100px", width: "100px", color: "red" }}
+              animation="border"
+            />
+          </>
         )}
         {unApprovedEvents.isError && (
           <h5 className="text-danger">Something Went Wrong...</h5>
@@ -36,8 +45,17 @@ export default function ApprovedEventsList() {
                   <div>Event Type: {String(unappEvent?.type)}</div>
                   <div>Venue: {String(unappEvent?.venue)}</div>
                   <div>Event Created date: {String(unappEvent?.createdAt)}</div>
-                  <div>Event Start date: {String(unappEvent?.startDate)}</div>
-                  <div>Event End date: {String(unappEvent?.endDate)}</div>
+                  <div>
+                    Event Start date:{" "}
+                    {new Date(unappEvent?.startDate).toLocaleDateString()} at{" "}
+                    {new Date(unappEvent?.startDate).toLocaleTimeString()}{" "}
+                  </div>
+
+                  <div>
+                    Event End date:{" "}
+                    {new Date(unappEvent?.endDate).toLocaleDateString()} at{" "}
+                    {new Date(unappEvent?.endDate).toLocaleTimeString()}{" "}
+                  </div>
                   {!unappEvent?.isPublished && (
                     <div className="text-danger">Event Not Published Yet</div>
                   )}

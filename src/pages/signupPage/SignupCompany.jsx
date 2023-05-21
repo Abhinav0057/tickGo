@@ -34,7 +34,8 @@ function SignupCompany() {
     formData.append("phone", payloadData.phone);
     formData.append("registrationNo", payloadData.registrationNo);
     formData.append("PAN", payloadData.PAN);
-    formData.append("company_docs", data.companyRegistrationDocs[0]);
+    // formData.append("company_docs", data.companyRegistrationDocs[0]);
+    formData.append("company_docs", "");
 
     const returnData = await mutateAsync(formData);
   };
