@@ -55,7 +55,7 @@ function HeaderSearch() {
             </h1>
           </div>
         </div>
-        <div
+        {/* <div
           style={{
             position: "absolute",
             bottom: "0%",
@@ -199,7 +199,7 @@ function HeaderSearch() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

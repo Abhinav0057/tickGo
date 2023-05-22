@@ -17,8 +17,10 @@ function UpcommingEvents() {
     <div className="mt-4 px-5" style={{ backgroundColor: "" }}>
       <h3>Upcoming Events</h3>
       <p>
-        Lorem ipsum dolor sit amet consectetur a nulla eaque atque, placeat quas
-        qui nemo architecto.
+        Discover a captivating lineup of upcoming events that will ignite your
+        curiosity and captivate your senses. From thought-provoking conferences
+        to exhilarating performances, immerse yourself in a world of endless
+        possibilities.
       </p>
       <div className="row">
         <Swiper

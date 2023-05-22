@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const THREE_MINUTES = 3 * 60 * 1000;
-const baseURL = "http://localhost:5000/apiV1/";
+const baseURL = "http://3.110.32.78:3005/apiV1/";
 const baseConfig = { baseURL, timeout: THREE_MINUTES };
 
 /**

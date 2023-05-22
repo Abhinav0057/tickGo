@@ -53,7 +53,7 @@ function EventCard(props) {
                 textOverflow: "ellipsis",
               }}
             >
-              {props?.eventData?.title ?? "title"}
+              {props?.eventData?.title ?? " "}
             </h3>
           </div>
           <div

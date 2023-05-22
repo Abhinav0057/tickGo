@@ -26,7 +26,8 @@ function CompanyDashboard() {
       const token = localStorage.getItem("token");
       const token1 = localStorage.getItem("token");
       const url =
-        "http://localhost:5000/apiV1" + api.stats.statsById.replace("{id}", id);
+        "http://3.110.32.78:3005/apiV1" +
+        api.stats.statsById.replace("{id}", id);
       console.log(token, url);
       const response = await axios.get(url, {
         headers: {

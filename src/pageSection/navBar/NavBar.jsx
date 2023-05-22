@@ -48,7 +48,7 @@ export default function NavBar(props) {
         }}
         className="d-flex justify-content-space-around p-0 m-0"
       >
-        {/* <Navbar.Brand href="/">
+        <Navbar.Brand href="/">
           {" "}
           <div className="logo" style={{ color: "white" }}>
             <Link
@@ -62,7 +62,7 @@ export default function NavBar(props) {
               </span>
             </Link>
           </div>
-        </Navbar.Brand> */}
+        </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           style={{ backgroundColor: "white", alignItems: "center" }}
