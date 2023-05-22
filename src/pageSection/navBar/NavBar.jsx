@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
+import logoImage from "../../assets/image/ticketNew.png";
 
 // import '../../Styles/Navbarlive.css';
 
@@ -41,7 +42,6 @@ export default function NavBar(props) {
         collapseOnSelect
         expand="md"
         style={{
-          backgroundColor: "black",
           alignItems: "center",
           display: "flex !important",
           justifyContent: "space-around",
@@ -53,13 +53,22 @@ export default function NavBar(props) {
           <div className="logo" style={{ color: "white" }}>
             <Link
               to="/"
-              style={{ color: "white", fontSize: "32px", fontWeight: "700" }}
+              style={{
+                color: "white",
+                fontSize: "32px",
+                fontWeight: "700",
+                height: "50px",
+              }}
               className=""
             >
-              Ticket
-              <span className="go" style={{ color: "red" }}>
-                Go
-              </span>
+              <img
+                style={{
+                  height: "50px",
+                  widows: "auto",
+                  color: "white",
+                }}
+                src={logoImage}
+              ></img>
             </Link>
           </div>
         </Navbar.Brand>

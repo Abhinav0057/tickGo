@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logoImage from "../../assets/image/ticketNew.png";
 import footerImage from "../../assets/image/footer.png";
 export default function Footer() {
   return (
@@ -14,11 +15,26 @@ export default function Footer() {
         >
           <div className="row text-center text-md-left">
             <div className=" col-md-3 col-lg-3 col-xl-3 mx mx-auto mt-4">
-              <div
-                className=" text-white"
-                style={{ fontWeight: "700", fonSize: "32px" }}
-              >
-                Ticket<span className="text-danger">Go</span>
+              <div className="logo" style={{ color: "white" }}>
+                <Link
+                  to="/"
+                  style={{
+                    color: "white",
+                    fontSize: "32px",
+                    fontWeight: "700",
+                    height: "50px",
+                  }}
+                  className=""
+                >
+                  <img
+                    style={{
+                      height: "50px",
+                      widows: "auto",
+                      color: "white",
+                    }}
+                    src={logoImage}
+                  ></img>
+                </Link>
               </div>
               <p className="text-white">Ticketing Memories</p>
             </div>
