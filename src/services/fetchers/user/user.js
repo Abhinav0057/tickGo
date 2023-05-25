@@ -50,6 +50,24 @@ export const useRegister = () => {
         queryKey: [api.user.userprofile],
       });
     },
+    onSuccess: () => {
+      toast.success("Successfully Signedup first step");
+    },
+    onSuccess: () => {
+      toast.info("Please fill next form");
+    },
+
+    onError: (error) => {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Something went wrong");
+      }
+    },
   });
 };
 export const useRegisterUserProfile = () => {
