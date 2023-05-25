@@ -85,8 +85,16 @@ export const useRegisterUserProfile = () => {
     onSuccess: () => {
       toast.success("Successfully Signedup");
     },
-    onError: () => {
-      toast.error("Something went wrong");
+    onError: (error) => {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Something went wrong");
+      }
     },
   });
 };
