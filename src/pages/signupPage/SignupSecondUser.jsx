@@ -17,7 +17,7 @@ function SignupSecondUser() {
     formState: { errors },
     watch: watch,
   } = useForm();
-  const { mutateAsync, error, mutate } = useRegisterUserProfile();
+  const { mutateAsync, error, mutate, isSuccess } = useRegisterUserProfile();
   const onSubmit = async (data) => {
     const payloadData = {
       name: data.useFullName,
@@ -32,8 +32,15 @@ function SignupSecondUser() {
     formData.append("dob", payloadData.dob);
 
     const returnData = await mutateAsync(payloadData);
-    if (returnData?.data) {
-      if (myUserRole.role === "company") {
+    console.log(returnData);
+    console.log(isSuccess);
+
+    if (returnData?.status == 200) {
+      navigate("/");
+      console.log(myUserRole);
+      if (myUserRole.role !== "company") {
+        navigate("/");
+      } else {
         navigate("/signup/company");
       }
     }

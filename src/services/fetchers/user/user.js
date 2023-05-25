@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import { useQuery } from "react-query";
 import jwt_decode from "jwt-decode";
+import { toast } from "react-toastify";
 
 import { api } from "../../api";
 import { httpClient } from "../../http-helpers";
@@ -62,6 +63,12 @@ export const useRegisterUserProfile = () => {
       queryClient.invalidateQueries({
         queryKey: [api.user.userprofile],
       });
+    },
+    onSuccess: () => {
+      toast.success("Successfully Signedup");
+    },
+    onError: () => {
+      toast.error("Something went wrong");
     },
   });
 };

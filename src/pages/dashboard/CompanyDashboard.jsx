@@ -46,7 +46,7 @@ function CompanyDashboard() {
     // try {
     //   const token = localStorage.getItem("token");
     //   const url =
-    //     "http://localhost:5000/apiV1" +
+    //     "http://15.207.247.244:5000/apiV1" +
     //     api.events.fetchByid.replace("{id}", id);
     //   console.log(token, url);
     //   const response = await axios.get(url, {

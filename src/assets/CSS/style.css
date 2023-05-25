@@ -35,4 +35,8 @@
 }
 .createEvent textarea {
   height: 264px;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
+
+a {
+  color: white !important;
+}

@@ -50,7 +50,7 @@ export default function NavBar(props) {
       >
         <Navbar.Brand href="/">
           {" "}
-          <div className="logo" style={{ color: "white" }}>
+          <div className="logo" style={{ color: "white", padding: "0px 20px" }}>
             <Link
               to="/"
               style={{

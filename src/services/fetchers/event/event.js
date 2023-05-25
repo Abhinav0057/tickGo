@@ -122,7 +122,7 @@ export const useTooglePublishHandler = (id) => {
     {
       // onSuccess: () => {
       //   queryClient.invalidateQueries([
-      //     api.events.fetch,
+      //     api.events.fetch,.
       //     api.events.fetchUnpublished,
       //   ]);
       // },

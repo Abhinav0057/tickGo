@@ -40,17 +40,18 @@ export default function Footer() {
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
               <h5 className="text-uppercase text-white mb-4 font-weight-bold ">
-                Product
+                Terms
               </h5>
-              <p></p>
+
               <p>
-                <a href="/" className="text-white">
-                  {" "}
-                  Service{" "}
-                </a>
+                <Link to="/terms-and-conditions">Terms</Link>
               </p>
-              <p></p>
-              <p></p>
+              <p>
+                <Link to="/terms-and-conditions">privacy-policy</Link>
+              </p>
+              <p>
+                <Link to="/company-disclamer">Disclaimer</Link>
+              </p>
               <p></p>
             </div>
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -59,13 +60,13 @@ export default function Footer() {
               </h5>
               <ul>
                 <li className="mt-3">
-                  <Link to="/About" className="text-white ">
+                  <Link to="/about-us" className="text-white ">
                     About
                   </Link>
                 </li>
                 <li className="mt-3">
-                  <Link to="/TC" className="text-white  ">
-                    Terms and Condition
+                  <Link to="/community-guideline" className="text-white  ">
+                    Guideline
                   </Link>
                 </li>
                 <li className="mt-3"></li>
@@ -76,8 +77,8 @@ export default function Footer() {
               <h5 className="text-uppercase mb-4 font-weight-bold text-white ">
                 Contact
               </h5>
-              <p>
-                <i className="fas fa-home mr-3 text-white"></i>Kathmandu 4600
+              <p className="text-white">
+                <i className="fa fa-home mr-2 text-white"></i>Kathmandu 4600
                 Nepal
               </p>
             </div>
