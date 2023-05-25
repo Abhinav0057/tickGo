@@ -104,7 +104,7 @@ function CheckoutPage() {
     <div className=" p-5">
       <div className="mt-3 ">
         <Link
-          to={`/eventpage/${myEventData.id}/${myEventData.title}`}
+          to={`/eventpage/${myEventData?.id}/${myEventData?.title}`}
           state={{ myEventData: myEventData }}
         >
           <div className="btn btn-danger m-1">{"<-"}</div>

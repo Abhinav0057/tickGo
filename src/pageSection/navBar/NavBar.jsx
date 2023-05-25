@@ -17,6 +17,7 @@ import {
   useGetUserProfile,
   useGetUserRole,
 } from "../../services/fetchers/user/user";
+import { toast } from "react-toastify";
 
 export default function NavBar(props) {
   //   const [open, setOpen] = useState(false);
@@ -25,6 +26,7 @@ export default function NavBar(props) {
   const navBarData = useNavBar();
   const userProfileData = useGetUserProfile();
   const userRole = useGetUserRole();
+
   useEffect(() => {
     if (props.isLogin) {
       setButtonPopup(() => true);
@@ -32,7 +34,13 @@ export default function NavBar(props) {
   }, [props.isLogin]);
   useEffect(() => {
     if (!userRole?.roles) {
-      if (!window.location.href.includes("signup")) navigate("/login");
+      if (window.location.href.includes("checkout")) {
+        toast.error("Login first to buy tickets");
+        navigate("/login");
+        if (!window.location.href.includes("signup")) {
+          navigate("/login");
+        }
+      }
     }
   }, [window.location.href]);
 
