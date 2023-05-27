@@ -5,6 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
+import { faStickyNote } from "@fortawesome/free-regular-svg-icons";
 
 function RecomemndedCard(props) {
   return (
@@ -14,7 +15,13 @@ function RecomemndedCard(props) {
         <div className="card  my-3">
           <div
             className="card-img-top "
-            style={{ height: "300px", width: "100%", position: "relative" }}
+            style={{
+              height: "300px",
+              width: "100%",
+              position: "relative",
+              background:
+                "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 100%)",
+            }}
           >
             {props.eventData?.images?.length > 0 ? (
               <img
@@ -38,15 +45,26 @@ function RecomemndedCard(props) {
           </div>
           <div
             className="card-body"
-            style={{ width: "100%", position: "absolute", bottom: "0" }}
+            style={{
+              width: "100%",
+              position: "absolute",
+              bottom: "0",
+              background:
+                "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 100%)",
+            }}
           >
             <div className=" ">
               <button
                 type="button"
                 className="btn btn-danger "
-                style={{ borderRadius: "16px", padding: "4px 16px" }}
+                style={{
+                  borderRadius: "16px",
+                  padding: "4px 16px",
+                  textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)",
+                }}
               >
-                Buy Now
+                <FontAwesomeIcon icon={faStickyNote} className="mr-1 " /> Buy
+                Now
               </button>
             </div>
             <div
@@ -85,7 +103,7 @@ function RecomemndedCard(props) {
                 icon={faCalendarDays}
                 className="mr-1 "
                 style={{
-                  color: "red",
+                  color: "white",
                   textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
                 }}
               />

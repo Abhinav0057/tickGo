@@ -24,21 +24,21 @@ function HeaderSearch() {
         <div className={styles.image}></div>
         <div>
           <div
-            className=""
+            className="container"
             style={{
               position: "absolute",
-              left: "35%",
-              top: "15%",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               zIndex: "10",
-
               color: "white",
             }}
           >
             <h1
-              className="title-head   d-none d-lg-block text-center"
+              className="title-head d-lg-block text-center"
               style={{
                 color: "white",
                 fontWeight: "bolder",

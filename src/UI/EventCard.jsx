@@ -3,8 +3,9 @@ import defaultImage from "../assets/image/defaultConcert.jpg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMap } from "@fortawesome/free-regular-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
+import { faMap } from "@fortawesome/free-regular-svg-icons";
+
 import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 
 function EventCard(props) {
