@@ -12,26 +12,21 @@ function RecomendedEvents() {
   const { isLoading, data: upCommingDataEvents, error } = useGetEvents();
   return (
     <div className="mt-4 px-5" style={{ backgroundColor: "" }}>
-      <h3>Recommended events for you</h3>
-      <p>
-        Explore a curated selection of highly recommended events that promise
-        unforgettable experiences. From exclusive showcases to remarkable
-        exhibitions, embrace the extraordinary and indulge in moments that will
-        leave you inspired.
-      </p>
+      <h3>Events You’d Love</h3>
+      <p>You Might be Interested in these Events Based on Your Preferences</p>
       <div className="row">
         {isLoading && (
           <>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-4 col-sm-6">
               <Skeleton height={300}></Skeleton>
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-4 col-sm-6">
               <Skeleton height={300}></Skeleton>
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-4 col-sm-6">
               <Skeleton height={300}></Skeleton>
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-4 col-sm-6">
               <Skeleton height={300}></Skeleton>
             </div>
           </>
@@ -40,11 +35,10 @@ function RecomendedEvents() {
         {!isLoading &&
           upCommingDataEvents?.length > 0 &&
           upCommingDataEvents[0].map((eventData) => (
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-4 col-sm-6">
               <Link
                 to={`/eventpage/${eventData.id}/${eventData.title}`}
                 state={{ myEventData: eventData }}
-                style={{ color: "black" }}
               >
                 <RecomemndedCard eventData={eventData} />
               </Link>

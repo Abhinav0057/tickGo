@@ -17,7 +17,7 @@ function HeaderSearch() {
       style={{
         width: "100%",
         height: "90vh",
-        dropShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+        dropShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
       }}
     >
       <div style={{ width: "100%", height: "90vh", position: "relative" }}>
@@ -46,11 +46,11 @@ function HeaderSearch() {
                 fontSize: "5rem",
               }}
             >
-              WE ARE
-              <br /> MAKING
+              YOUR TICKET
+              <br /> TO
               <br />{" "}
               <span className="memories" style={{ color: "red" }}>
-                MEMORIES{" "}
+                रमाइलो!{" "}
               </span>
             </h1>
           </div>

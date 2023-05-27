@@ -3,6 +3,8 @@ import defaultImage from "../assets/image/defaultConcert.jpg";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 
 function RecomemndedCard(props) {
   return (
@@ -14,22 +16,16 @@ function RecomemndedCard(props) {
             className="card-img-top "
             style={{ height: "300px", width: "100%", position: "relative" }}
           >
-            {/* condition to see if image url is provided or use default  */}
-            {/* {props.currentPost.imageUrl ? (
-                <img
-                    alt={'image'}
-                    effect="blur"
-                    src={props.imageUrl + props.currentPost.imageUrl}
-                />
-            ) : (
-                <img src={defaultImage} className="" alt="..." />
-            )} */}
             {props.eventData?.images?.length > 0 ? (
               <img
                 src={props.eventData?.images[0].name ?? defaultImage}
                 className=""
                 alt="..."
-                style={{ height: "300px", width: "100%", objectFit: "cover" }}
+                style={{
+                  height: "300px",
+                  width: "100%",
+                  objectFit: "cover",
+                }}
               />
             ) : (
               <LazyLoadImage
@@ -68,20 +64,12 @@ function RecomemndedCard(props) {
                   whiteSpace: "nowrap",
                   textOverflow: "ellipsis",
                   color: "white",
+                  textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
                 }}
               >
                 {props?.eventData?.title ?? " "}
               </h3>
             </div>
-            <h5
-              className=""
-              style={{
-                overflow: "hidden",
-                whiteSpace: "nowrap",
-                textOverflow: "ellipsis",
-                color: "white",
-              }}
-            ></h5>
 
             <p
               className=""
@@ -90,9 +78,17 @@ function RecomemndedCard(props) {
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
                 color: "white",
+                textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
               }}
             >
-              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <FontAwesomeIcon
+                icon={faCalendarDays}
+                className="mr-1 "
+                style={{
+                  color: "red",
+                  textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
+                }}
+              />
               {props?.eventData?.date
                 ? new Date(props?.eventData?.date).toLocaleDateString("en-GB", {
                     day: "numeric",

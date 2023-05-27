@@ -74,6 +74,7 @@ export default function NavBar(props) {
                   height: "50px",
                   widows: "auto",
                   color: "white",
+                  borderRadius: "6px",
                 }}
                 src={logoImage}
               ></img>
