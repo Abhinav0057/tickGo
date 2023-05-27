@@ -31,12 +31,16 @@ export default function Footer() {
                       height: "50px",
                       widows: "auto",
                       color: "white",
+                      borderRadius: "6px",
                     }}
                     src={logoImage}
                   ></img>
                 </Link>
               </div>
-              <p className="text-white">Ticketing Memories</p>
+              <p className="text-white pt-1">
+                YOUR TICKET TO
+                <span style={{ color: "red" }}> रमाइलो!</span>
+              </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
               <h5 className="text-uppercase text-white mb-4 font-weight-bold ">
@@ -44,13 +48,19 @@ export default function Footer() {
               </h5>
 
               <p>
-                <Link to="/terms-and-conditions">Terms</Link>
+                <Link to="/terms-and-conditions" style={{ color: "white" }}>
+                  Terms
+                </Link>
               </p>
               <p>
-                <Link to="/terms-and-conditions">privacy-policy</Link>
+                <Link to="/terms-and-conditions" style={{ color: "white" }}>
+                  privacy-policy
+                </Link>
               </p>
               <p>
-                <Link to="/company-disclamer">Disclaimer</Link>
+                <Link to="/company-disclamer" style={{ color: "white" }}>
+                  Disclaimer
+                </Link>
               </p>
               <p></p>
             </div>
@@ -78,9 +88,37 @@ export default function Footer() {
                 Contact
               </h5>
               <p className="text-white">
-                <i className="fa fa-home mr-2 text-white"></i>Kathmandu 4600
+                <i className="fa fa-home mr-2 text-white"></i>Budhanilkantha,
                 Nepal
               </p>
+              <a
+                href="tel:+9779863941434"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                +977 9863941434
+              </a>
+              <div>
+                <a
+                  href="mailto:ticketgo123@gmail.com"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  ticketgo123@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row  pl-4 pr-4 "
+            style={{
+              color: "white",
+              background:
+                "linear-gradient(137.71deg, rgba(0, 0, 0, 0.88) 71.53%, #F30606 100.98%, rgba(255, 255, 255, 0.42) 95.98%)",
+            }}
+          >
+            <div className="d-flex justify-content-center">
+              <div className="" style={{ fontSize: "12px" }}>
+                Powered By Radiant Elixir Softtech
+              </div>
             </div>
           </div>
         </div>

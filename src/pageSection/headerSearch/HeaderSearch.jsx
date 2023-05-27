@@ -43,7 +43,7 @@ function HeaderSearch() {
                 color: "white",
                 fontWeight: "bolder",
                 textAlign: "center",
-                fontSize: "5rem",
+                fontSize: "4.5rem",
               }}
             >
               YOUR TICKET

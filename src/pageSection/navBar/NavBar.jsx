@@ -51,6 +51,7 @@ export default function NavBar(props) {
         expand="md"
         style={{
           alignItems: "center",
+          color: "white",
           display: "flex !important",
           justifyContent: "space-around",
         }}
@@ -62,9 +63,6 @@ export default function NavBar(props) {
             <Link
               to="/"
               style={{
-                color: "white",
-                fontSize: "32px",
-                fontWeight: "700",
                 height: "50px",
               }}
               className=""
@@ -92,6 +90,7 @@ export default function NavBar(props) {
             display: "flex !important",
             justifyContent: "flex-end",
             alignItems: "center",
+            color: "white",
             verticalAlign: "middle",
           }}
         >
@@ -103,12 +102,10 @@ export default function NavBar(props) {
               <Nav
                 className="mx-4"
                 style={{
-                  fontSize: "18px",
-                  fontWeight: "500",
-                  letterSpacing: "2px",
                   maxWidth: "150px",
-                  padding: 4,
+                  padding: 0,
                   alignItems: "center",
+                  color: "white",
                 }}
               >
                 <Link
@@ -125,12 +122,10 @@ export default function NavBar(props) {
                 <Nav
                   className="mx-4"
                   style={{
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    letterSpacing: "2px",
                     maxWidth: "150px",
+                    padding: 0,
                     alignItems: "center",
-                    padding: 4,
+                    color: "white",
                   }}
                 >
                   <Link
@@ -144,12 +139,10 @@ export default function NavBar(props) {
                 <Nav
                   className="mx-4"
                   style={{
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    letterSpacing: "2px",
-                    alignItems: "center",
-                    padding: 4,
                     maxWidth: "150px",
+                    padding: 0,
+                    alignItems: "center",
+                    color: "white",
                   }}
                 >
                   <Link
@@ -167,12 +160,10 @@ export default function NavBar(props) {
                 <Nav
                   className="mx-4"
                   style={{
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    letterSpacing: "2px",
                     maxWidth: "150px",
-                    padding: 4,
+                    padding: 0,
                     alignItems: "center",
+                    color: "white",
                   }}
                 >
                   <Link
@@ -188,16 +179,18 @@ export default function NavBar(props) {
             <Nav
               className="mx-4"
               style={{
-                fontSize: "18px",
-                padding: 4,
-                fontWeight: "500",
-                letterSpacing: "2px",
-                alignItems: "center",
                 maxWidth: "150px",
+                padding: 0,
+                alignItems: "center",
+                color: "white",
               }}
             >
               {userRole?.roles?.toLowerCase() == "company" && (
-                <Link to="/company-dashboard" className="active ">
+                <Link
+                  to="/company-dashboard"
+                  className="active "
+                  style={{ Color: "white" }}
+                >
                   Dashboard
                 </Link>
               )}
@@ -206,12 +199,10 @@ export default function NavBar(props) {
               <Nav
                 className="mx-4"
                 style={{
-                  fontSize: "18px",
-                  fontWeight: "500",
-                  padding: 4,
-                  letterSpacing: "2px",
-                  alignItems: "center",
                   maxWidth: "150px",
+                  padding: 0,
+                  alignItems: "center",
+                  color: "white",
                 }}
               >
                 {/* <a href="/"> */}
@@ -219,14 +210,11 @@ export default function NavBar(props) {
                 <Link to={"/userhomepage"}>
                   <div
                     className="fa-regular fa-circle-user"
-                    // onClick={() => {
-                    // 	setOpen(!open);
-                    // }}
                     style={{
-                      fontSize: "18px",
-                      fontWeight: "500",
-                      letterSpacing: "2px",
                       maxWidth: "150px",
+                      padding: 0,
+                      alignItems: "center",
+                      color: "white",
                     }}
                   >
                     {userProfileData?.data?.name ?? "User"}
@@ -239,12 +227,10 @@ export default function NavBar(props) {
               <Nav
                 className="mx-4"
                 style={{
-                  fontSize: "18px",
-                  fontWeight: "500",
-                  letterSpacing: "2px",
-                  padding: 4,
                   maxWidth: "150px",
+                  padding: 0,
                   alignItems: "center",
+                  color: "white",
                 }}
               >
                 <Button
@@ -261,12 +247,10 @@ export default function NavBar(props) {
               <Nav
                 className="mx-4"
                 style={{
-                  fontSize: "18px",
-                  fontWeight: "500",
-                  letterSpacing: "2px",
-                  padding: 4,
                   maxWidth: "150px",
+                  padding: 0,
                   alignItems: "center",
+                  color: "white",
                 }}
               >
                 <Button variant="danger" onClick={() => setButtonPopup(true)}>
@@ -275,27 +259,6 @@ export default function NavBar(props) {
               </Nav>
             )}
           </Nav>
-          {/* <Nav className="me-auto">
-						<Nav.Link href="#features">Features</Nav.Link>
-						<Nav.Link href="#pricing">Pricing</Nav.Link>
-						<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-							<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.2">
-								Another action
-							</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-							<NavDropdown.Divider />
-							<NavDropdown.Item href="#action/3.4">
-								Separated link
-							</NavDropdown.Item>
-						</NavDropdown>
-					</Nav> */}
-          {/* <Nav>
-						<Nav.Link href="#deets">More deets</Nav.Link>
-						<Nav.Link eventKey={2} href="#memes">
-							Dank memes
-						</Nav.Link>
-					</Nav> */}
         </Navbar.Collapse>
       </Navbar>
       <Popuplogin trigger={buttonPopup} setTrigger={setButtonPopup}>
