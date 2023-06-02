@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "../../../assets/image/defaultConcert.jpg";
+import backgroundImage from "../../../assets/image/ticketNew.png";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";

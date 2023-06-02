@@ -1,5 +1,5 @@
 import React from "react";
-import defaultImage from "../assets/image/defaultConcert.jpg";
+import defaultImage from "../assets/image/ticketNew.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,6 +29,7 @@ function EventCard(props) {
                 width: "100%",
                 objectFit: "contain",
                 borderRadius: "16px",
+                borderRadius: "20px",
               }}
               src={props.eventData?.images[0].name ?? defaultImage}
             />

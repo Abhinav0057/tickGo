@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EventHomePage from "./pages/eventPage/EventHomePage";
 import EventTicketPage from "./pages/eventTicketPage/EventTicketPage";
 import { Home } from "./pages/Home/Home";
+import { useEffect } from "react";
 import Footer from "./pageSection/footer/Footer";
 import NavBar from "./pageSection/navBar/NavBar";
 import React from "react";

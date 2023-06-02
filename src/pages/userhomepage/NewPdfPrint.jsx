@@ -1,6 +1,14 @@
 import React from "react";
 import QRCode from "qrcode";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendarDays,
+  faCheckCircle,
+  faStickyNote,
+  faMoneyBill1,
+} from "@fortawesome/free-regular-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 const NewPdfPrint = React.forwardRef((props, ref) => {
   const [qrCodeData, setQRCodeData] = useState("");
@@ -21,7 +29,7 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
     <div ref={ref}>
       <div
         className="   m-5 "
-        style={{ backgroundColor: "rgba(51, 177, 224, 0.25)", height: "100%" }}
+        style={{ backgroundColor: "rgba(224, 0, 0, 0.20)", height: "100%" }}
       >
         <div className="card-body p-0 m-2 ">
           <div className=" w-100  ">
@@ -94,7 +102,11 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
               </div>
               <div className="d-flex justify-content-center">
                 <h7 className="text-center">
-                  {" "}
+                  <FontAwesomeIcon
+                    icon={faCalendarDays}
+                    className="mr-1 "
+                    style={{ color: "red" }}
+                  />{" "}
                   {new Date(
                     props.printTicketPayload?.event?.startDate
                   ).toLocaleDateString()}{" "}
@@ -102,6 +114,11 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
               </div>
               <div className="d-flex justify-content-center">
                 <h7 className="text-center">
+                  <FontAwesomeIcon
+                    icon={faClock}
+                    className="mr-1 "
+                    style={{ color: "red" }}
+                  />
                   {new Date(
                     props.printTicketPayload?.event?.startDate
                   ).toLocaleTimeString()}{" "}
@@ -127,7 +144,7 @@ const NewPdfPrint = React.forwardRef((props, ref) => {
                 props.printTicketPayload?.createdAt
               ).toLocaleTimeString()}{" "}
             </h5>
-            <h4>Payment Partner : {"Khalti".toUpperCase()}</h4>
+            <h6>Payment Partner : {"Khalti".toUpperCase()}</h6>
             <h6>Payment Id : {props.printTicketPayload?.id}</h6>
           </div>
         </div>

@@ -18,6 +18,7 @@ import {
   useGetUserRole,
 } from "../../services/fetchers/user/user";
 import { toast } from "react-toastify";
+import { useLocation } from "react-router-dom";
 
 export default function NavBar(props) {
   //   const [open, setOpen] = useState(false);
@@ -26,6 +27,15 @@ export default function NavBar(props) {
   const navBarData = useNavBar();
   const userProfileData = useGetUserProfile();
   const userRole = useGetUserRole();
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+      duration: 100,
+    });
+  }, [location]);
 
   useEffect(() => {
     if (props.isLogin) {
