@@ -121,9 +121,9 @@ export default function NavBar(props) {
                 <Link
                   to="/organizer/create-event"
                   className="active "
-                  style={{ Color: "white" }}
+                  style={{ Color: "white !important" }}
                 >
-                  Create Event
+                  <span style={{ color: "white" }}>Create Event</span>
                 </Link>
               </Nav>
             )}
@@ -143,7 +143,7 @@ export default function NavBar(props) {
                     className="active "
                     style={{ Color: "white" }}
                   >
-                    Approve Events
+                    <span style={{ color: "white" }}>Approve Events</span>
                   </Link>
                 </Nav>
                 <Nav
@@ -160,7 +160,7 @@ export default function NavBar(props) {
                     className="active "
                     style={{ Color: "white" }}
                   >
-                    Unapprove Events
+                    <span style={{ color: "white" }}>Unapprove Events</span>
                   </Link>
                 </Nav>
               </>
@@ -181,7 +181,7 @@ export default function NavBar(props) {
                     className="active "
                     style={{ Color: "white" }}
                   >
-                    My Events
+                    <span style={{ color: "white" }}>My Events</span>
                   </Link>
                 </Nav>
               </>
@@ -201,7 +201,7 @@ export default function NavBar(props) {
                   className="active "
                   style={{ Color: "white" }}
                 >
-                  Dashboard
+                  <span style={{ color: "white" }}>Dashboard</span>
                 </Link>
               )}
             </Nav>

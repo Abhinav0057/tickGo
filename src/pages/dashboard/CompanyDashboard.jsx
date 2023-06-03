@@ -17,6 +17,8 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 import defaultImage from "../../assets/image/ticketNew.png";
 
 import { Spinner } from "react-bootstrap";
+import useDashboard from "./useDashboard";
+import TicketCountChart from "./TicketCountChart ";
 function CompanyDashboard() {
   const getAllMyEvents = useGetEvents();
 
@@ -50,26 +52,6 @@ function CompanyDashboard() {
     } finally {
       setIsLoading(false);
     }
-
-    // try {
-    //   const token = localStorage.getItem("token");
-    //   const url =
-    //     "http://15.207.247.244:5000/apiV1" +
-    //     api.events.fetchByid.replace("{id}", id);
-    //   console.log(token, url);
-    //   const response = await axios.get(url, {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`, // replace token with your actual token value
-    //     },
-    //   });
-    //   setEventDetails(response.data);
-    //   console.log(response.data);
-    // } catch (error) {
-    //   console.error(error);
-    //   setIsError(true);
-    // } finally {
-    //   setIsLoading(false);
-    // }
   };
 
   useEffect(() => {
@@ -79,6 +61,13 @@ function CompanyDashboard() {
       setCallAgainHandler(() => false);
     }
   }, [callAgainHandler]);
+
+  const CompanyDashboardData = useDashboard({
+    eventDetailsStats: eventDetailsStats,
+    eventSelectedId: eventDetails,
+    allEventData: getAllMyEvents?.data,
+  });
+  console.log(CompanyDashboardData?.eventSoldleftDict);
 
   return (
     <div style={{ background: " rgba(0, 0, 0, 0.1)" }}>
@@ -102,6 +91,14 @@ function CompanyDashboard() {
               <TableCompanyTicketsBoughts
                 eventDetailsStats={eventDetailsStats}
                 setCallAgainHandler={setCallAgainHandler}
+              />
+            </div>
+          )}
+          {CompanyDashboardData?.eventSoldleftDict && eventDetailsStats && (
+            <div>
+              <h1>Ticket Count Chart</h1>
+              <TicketCountChart
+                ticketCounts={CompanyDashboardData?.eventSoldleftDict}
               />
             </div>
           )}
