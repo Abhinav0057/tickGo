@@ -21,7 +21,13 @@ function TopImageSection(props) {
           dropShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
         }}
       >
-        <div style={{ width: "100%", height: "90vh", position: "relative" }}>
+        <div
+          style={{
+            width: "100%",
+            height: "90vh",
+            position: "relative",
+          }}
+        >
           <div>
             {props.myEventData?.images?.length > 0 && (
               <div className="">
@@ -100,6 +106,9 @@ function TopImageSection(props) {
                 top: "0",
                 right: "-70%",
                 width: "100%",
+                top: "30%",
+                background:
+                  " linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 100%)",
               }}
             >
               <div
@@ -133,9 +142,9 @@ function TopImageSection(props) {
                     fontSize: "60px",
                   }}
                 >
-                  <button type="button" className="btn btn-danger p-2">
+                  {/* <button type="button" className="btn btn-danger p-2">
                     Buy Now
-                  </button>
+                  </button> */}
                 </div>
               </Link>
             </div>

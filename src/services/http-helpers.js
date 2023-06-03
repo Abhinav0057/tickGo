@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const THREE_MINUTES = 3 * 60 * 1000;
-const baseURL = "http://localhost:3005/apiV1";
+const baseURL = "https://api.ticketgooo.com/apiV1";
 const baseConfig = { baseURL, timeout: THREE_MINUTES };
 
 /**
